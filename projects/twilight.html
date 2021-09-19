@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 <body>
 <div class="bx--grid">
-
     <div class="bx--row"></div>
 
   <div class="bx--row">
@@ -26,26 +26,218 @@
     <div class="bx--row"></div>
 
   <div class="bx--row">
-    <div class="bx--col-lg-3 bx--col-md-2 info">
+    <div class="bx--col-lg-3 bx--col-md-1 info">
       <h2>Twilight Mirror</h2>
       <br>
       <br>
       <p1>During the early days of the pandemic I became increasingly interested in watching footage from live CCTV cameras based in random locations around the world. As each day blended into the other and the experience of time dilation became stranger, I wanted to engage with this compelling form of slow TV and develop ways of measuring change across minutes and days.
-        <br></br>I began creating images that plot and compare the colours of twilight across different days as time unfolds. The following image was developed using footage from two subsequent evenings on a remote mountaintop in the Spanish desert.
-       </p1>
+      <br></br>I began creating patterns that reflect the colours of twilight as time unfolds. The patterns were developed using footage from 10 evenings on a remote mountaintop in the Spanish desert.
+     </p1>
+         <p1 class="glow">Scroll away</p1>.</p1>
     </div>
   </div>
   <div class="bx--row">
+    <!-- <div class="bx--col-lg-3 bx--col-md-1 info">
+      <p1>A clock that only ticks during twilight and tells the time in colours.<br><br>Using video data, each complete revolution maps the shifts in the colour spectrum at dawn and dusk. This recording captures 3 mornings and 3 evenings from a webcam located on a lonely mountain-top observatory in the Spanish desert.
+         <p1 class="glow">Scroll away</p1>.</p1>
+      <br>
+    </div> -->
 
-    <!-- <div class="bx--offset-lg-3 bx--offset-md-2 bx--col-lg-6 bx--col-md-4"> -->
+    <div class="bx--offset-lg-3 bx--offset-md-2 bx--col-lg-6 bx--col-md-4">
+      <div class="center">
 
-        <div class="bx--offset-lg-3 bx--offset-md-2 bx--col-lg-6 bx--col-md-4 bx--aspect-ratio bx--aspect-ratio--16x4">
-          <div class="center">
-          <img src="images/mirror.png" class="twitch">
-          </div>
-        </div>
+      <img src="images/dawn1.png" class="dawn1">
+      <img src="images/dusk1.png" class="dusk1">
+      <img src="images/dawn2.png" class="dawn2">
+      <img src="images/dusk2.png" class="dusk2">
+      <img src="images/dawn3.png" class="dawn3">
+      <img src="images/dusk3.png" class="dusk3">
+      <img src="images/dawn4.png" class="dawn4">
+      <img src="images/dusk4.png" class="dusk4">
+      <img src="images/dawn5.png" class="dawn5">
+      <img src="images/dusk5.png" class="dusk5">
 
+      </div>
+      <br>
+      <br>
+      <div class="bx--row hours">
+          <div class="past"></div>
+          <div class="number"></div>
+          <div class="future"></div>
+
+      </div>
     </div>
 
+    <div class="bx--col-lg-3 bx--col-md-1">
+    </div>
+
+
+    </div>
+    <script>
+
+      const dawn1 = document.querySelector(".dawn1");
+      const dusk1 = document.querySelector(".dusk1");
+      const dawn2 = document.querySelector(".dawn2");
+      const dusk2 = document.querySelector(".dusk2");
+      const dawn3 = document.querySelector(".dawn3");
+      const dusk3 = document.querySelector(".dusk3");
+      const dusk4 = document.querySelector(".dusk4");
+      const dawn4 = document.querySelector(".dawn4");
+      const dawn5 = document.querySelector(".dawn5");
+      const dusk5 = document.querySelector(".dusk5");
+
+      function zoom2(event) {
+
+        instant.angle += event.deltaY * 0.2;
+//      x1y1-topleft, x2,y2-topright,
+        if (instant.angle < 0) {
+          instant.el.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+
+          instant.order.push(instant.order.splice(0,1)[0])
+          instant.el = instant.order[0]
+          for (i=0; i<instant.order.length; i++){
+            instant.order[i].style.zIndex = instant.order.length - i
+          }
+          instant.angle = 360 + instant.angle
+          instant.pheta = 50*((instant.angle/360))
+          instant.clipPath = "polygon(0% " + String(50-instant.pheta) + "%, 100% " + String(50 - instant.pheta) + "%,  100% " + String(50+ instant.pheta) + "%, 0% " + String(50+ instant.pheta) + "%)";
+
+          // instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0," + String(instant.pheta) + "% 0)";
+        }
+        // polygon(0% 50-(50*angle/360), 100% 50-(50*angle/360), 100% 50+(50*angle/360), 0% 50+(50*angle/360))
+          else if (instant.angle <= 360) {
+          instant.pheta = 50*(instant.angle/360)
+          // instant.pheta = 50 + 50*(instant.angle/45)
+          instant.clipPath = "polygon(0% " + String(50-instant.pheta) + "%, 100% " + String(50 - instant.pheta) + "%,  100% " + String(50+ instant.pheta) + "%, 0% " + String(50+ instant.pheta) + "%)";
+          // instant.clipPath = "polygon(50% 50%, 50% 0," + String(instant.pheta) + "% 0)";
+        }
+        //   else if (instant.angle < 90) {
+        //   instant.pheta = 50*((instant.angle-45)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% " + String(instant.pheta) + "%)";
+        // }
+        //   else if (instant.angle < 135) {
+        //   instant.pheta = 50 + 50*((instant.angle-90)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% " + String(instant.pheta) + "%)";
+        // }
+        //   else if (instant.angle < 180) {
+        //   instant.pheta = 100 - 50*((instant.angle-135)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% 100%, " + String(instant.pheta) + "% 100%)";
+        // }
+        //   else if (instant.angle < 225) {
+        //   instant.pheta = 50 - 50*((instant.angle-180)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 50% 100%," + String(instant.pheta) + "% 100%)";
+        // }
+        //   else if (instant.angle < 270) {
+        //   instant.pheta = 100 - 50*((instant.angle-225)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 " + String(instant.pheta) + "%)";
+        // }
+        //   else if (instant.angle < 315) {
+        //   instant.pheta = 50 - 50*((instant.angle-270)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 " + String(instant.pheta) + "%)";
+        // }
+        //   else if (instant.angle <= 360) {
+        //   instant.pheta = 50*((instant.angle-315)/45)
+        //   instant.clipPath = "polygon(50% 50%, 50% 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 0," + String(instant.pheta) + "% 0)";
+        // }
+          else if (instant.angle > 360) {
+            instant.el.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+
+            instant.angle = instant.angle-360
+            instant.pheta = 50*((instant.angle/360))
+            // instant.el.style.clipPath = "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+
+            // instant.clipPath = "polygon(50% 50%, 50% 0," + String(instant.pheta) + "% 0)";
+            instant.clipPath = "polygon(0% " + String(50-instant.pheta) + "%, 100% " + String(50 - instant.pheta) + "%,  100% " + String(50+ instant.pheta) + "%, 0% " + String(50+ instant.pheta) + "%)";
+
+            instant.order.unshift(instant.order.pop())
+            instant.el = instant.order[0]
+            for (i=0; i<instant.order.length; i++){
+              instant.order[i].style.zIndex = instant.order.length - i
+            }
+          }
+
+        instant.el.style.clipPath = instant.clipPath;
+        instant.start = Object.values(dict[instant.el.className])[0]
+        instant.delta = dict[instant.el.className]["delta"]
+        instant.unix = Math.round((instant.start)+(instant.delta)*(Math.round(instant.angle)/360))
+
+        instant.timings = Object.values(dict[instant.el.className]).slice(0,-1)
+        instant.keys = Object.keys(dict[instant.el.className]).slice(0,-1)
+        instant.timings.push(instant.unix)
+        instant.timings.sort()
+
+        if (instant.keys[instant.timings.indexOf(instant.unix)-1] === undefined) {
+          $('.past').html(instant.keys[instant.timings.indexOf(instant.unix)])
+          $('.future').html(instant.keys[instant.timings.indexOf(instant.unix)+1])
+        }
+        else {
+          $('.past').html(instant.keys[instant.timings.indexOf(instant.unix)-1])
+          $('.future').html(instant.keys[instant.timings.indexOf(instant.unix)])
+        }
+
+        $('.number').html("   →   " + new Date(1000*instant.unix).toISOString().substr(11, 5) + "   →   ")
+
+
+      }
+
+      class moment {
+        constructor(order, clipPath, zIndex, pheta, angle, el, start, end, delta, unix, timings, keys) {
+        this.order = order;
+        this.clipPath = clipPath;
+        this.zIndex = zIndex;
+        this.pheta = pheta;
+        this.angle = angle;
+        this.el = el;
+        this.start = start;
+        this.end = end;
+        this.delta = delta;
+        this.unix = unix;
+        this.timings = timings;
+        }
+      }
+
+      const instant = new moment([dawn1, dusk1, dawn2, dusk2, dawn3, dusk3, dawn4, dusk4, dawn5, dusk5],
+                                  "polygon(50% 50%, 50% 0, 100% 0)",
+                                  1, 0, 1, dawn1, 1592369880, 1592378820, 0);
+
+
+      var dict = {
+        dawn1: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dawn2: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dawn3: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dusk1: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dusk2: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dusk3: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dawn4: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dusk4: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dawn5: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940},
+        dusk5: {"Golden Hour": 1592427240, "Civil Twilight": 1592429460, "Nautical Twilight": 1592431320, "Astronomical Twilight": 1592433600, "Night": 1592436180, "delta": 8940}
+
+      }
+
+      onwheel = zoom2;
+      let unix1 = 1592681400
+      let unix2 = 1592697000
+      let delta = unix2-unix1
+
+      $(window).load(function() {
+    // this code gets executed when all content of the page (including images) is loaded
+//       dawn1.visible {
+//   display: block;
+// }
+    dawn1.style.display='block';
+    dawn2.style.display='block';
+    dawn3.style.display='block';
+    dusk1.style.display='block';
+    dusk2.style.display='block';
+    dusk3.style.display='block';
+    dusk4.style.display='block';
+    dawn4.style.display='block';
+    dawn5.style.display='block';
+    dusk5.style.display='block';
+});
+  </script>
+
+</div>
 </body>
 </html>
