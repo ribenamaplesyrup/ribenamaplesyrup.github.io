@@ -4,48 +4,77 @@
 <title>Sean Greaves</title>
 <meta charset="utf-8"/>
 </head>
-<!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
-<link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <body>
-<div class="bx--grid">
 
-  <div class="bx--row"></div>
+<div class="nav">
+  <a href="../index.html"><p class="back"><<</p></a>
+</div>
 
-  <div class="bx--row">
-    <div class="bx--col-lg-16">
-      <div class="bx--col">
-        <a href="../index.html">
-      <h1 class="back"><<</h1></a>
-    </div>
-    </div>
-  </div>
-
-  <div class="bx--row"></div>
-
-  <div class="bx--row">
-    <div class="bx--col-md-2 bx--col-sm-1 bx--aspect-ratio bx--aspect-ratio--16x4 info">
-      <h2>Facial Feedback</h2>
-      <br>
-      <br>
-      <p1>
-        Some faces go viral, inspiring many to undergo different kinds of digital and cosmetic augmentation.<br></br>The following composite portrait is made entirely from dozens of Kim Kardashian's doppelgängers. Each face is overlayed, averaged and fine-tuned to Kim’s measurements using facial landmark detection. Kim’s face becomes a focal lens with which to warp and smooth many other faces into a timeless collective identity.
-      </p1>
-    </div>
-  </div>
-
-  <div class="bx--row">
-
-
-    <div class="bx--offset-lg-3 bx--offset-md-2 bx--col-md-4 bx--col-sm-8 bx--aspect-ratio bx--aspect-ratio--16x4">
-      <div class="center">
-      <img src="images/kim.png" class="twitch">
+<div class="row content-box">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+    <div class="row center-xs">
+      <div class="col-xs-10 col-sm-8 col-md-8 col-lg-7">
+        <br>
+        <br>
+        <br>
+        <div class ="inner">
+        <h3>Facial Feedback</h3>
+        <br>
+        <br>
+        <p1>
+          Some faces go viral, inspiring many to undergo different kinds of digital and cosmetic augmentation.<br></br>The following portraits are generated from dozens of images of Bella Hadid, Rihanna and Kim Kardashian’s doppelgängers. Dlib (C++ machine learning library) was used to detect each celebrity’s facial landmarks and the resulting constellations of coordinates were treated as a focal lens to fine-tune and average the faces of each doppelgänger into a collective identity.
+        </p1>
+        <br>
+        <br>
+        <div class="row center-xs">
+          <div class="col-xs-12 col-sm-12 col-md-11 col-lg-10">
+            <figure>
+              <img src="images/kim.png" class="image">
+              <figcaption>
+                <p>Kim wears Kami Osman, Sonia Ali, Amra Olevic Reyes, Claire Leeson, Naya Rivera, Thalia Almodovar, Jelena Karleuša, Jelena Peric, Larsa Pippen and Monyy Monn.</p>
+              </figcaption>
+            </figure>
+            <br>
+            <figure>
+              <img src="images/riri.png" class="image">
+              <figcaption>
+                <p>Rihanna wears Priscila Beatrice, Andele Lara, Renee Kujur, Yna Sertalf and @notavrey</p>
+                </figcaption>
+            </figure>
+            <br>
+            <figure>
+              <img src="images/bella.png" class="image">
+              <figcaption>
+                <p>Bella wears Jennifer Lawrence, Carla Bruni, Isabelle Mathers and Joann van den Herik</p>
+                </figcaption>
+            </figure>
+          </div>
+        </div>
+        <br>
+        <p1>
+         This small project arose from my interest in the aesthetic intersections of doppelgängers within science fiction and religion, celebrity culture and social media induced feedback cycles. I am interested in further exploring how platforms mediate monocultures and outliers. Recently I have been experimenting with superimposing generated faces onto mannequins...
+       </p1>
+       <br>
+       <br>
+       <br>
+       <br>
+       <figure>
+       <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/721992690?h=16e3b9d266&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="contextual_mannequin"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+       <figcaption>
+         <p>Experimenting with the wonderful mannequins of Fonthill Road in Finsbury Park, London</p>
+       </figcaption>
+      </figure>
+       <br>
       </div>
     </div>
-
   </div>
-
+  <br>
+  <br>
+</div>
 </div>
 </body>
 </html>
