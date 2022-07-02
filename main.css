@@ -53,8 +53,8 @@ html, body {
 }
 
 .item {
-  max-height: 25vh;
-  max-width: 25vh;
+  max-height: 20vmin;
+  max-width: 20vmin;
 }
 
 h2 {
