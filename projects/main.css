@@ -44,6 +44,7 @@ body {
   border-style: solid;
   padding: 50px;
   border-color: white;
+  border-width: thin;
 }
 
 .credits {
