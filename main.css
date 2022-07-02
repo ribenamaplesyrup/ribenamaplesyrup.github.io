@@ -19,12 +19,27 @@ a {
 }
 
 body {
-  background-color: #171414;
+  background-image: linear-gradient(rgba(146,146,146,1), rgba(0,118,186,1));
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+footer {
+  min-height:70px;
+  margin-top:auto;
+  padding-right: 30px;
+  text-align: right;
+  font-family: "IBM Plex Mono";
+}
+
+.name {
+  color: white;
 }
 
 html, body {
   overflow: hidden;
-  height:100%;
+  /* height:100%; */
 }
 
 .twitch {
@@ -38,8 +53,8 @@ html, body {
 }
 
 .item {
-  max-height: 25vh;
-  max-width: 25vh;
+  max-height: 20vmin;
+  max-width: 20vmin;
 }
 
 h2 {

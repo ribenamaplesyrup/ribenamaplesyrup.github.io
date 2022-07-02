@@ -4,79 +4,25 @@
 <title>Sean Greaves</title>
 <meta charset="utf-8"/>
 </head>
-<!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
-<link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css" type="text/css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="main.css">
-<script src="https://d3js.org/d3.v4.js"></script>
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <body>
-
-<div class="bx--grid">
-    <div class="bx--row">
-      <div class="bx--col-lg-16">
-        <div class="bx--col">
-        <h1 class="header">+</h1>
-      </div>
-      </div>
-    </div>
-
-
-  <div class="bx--row">
     <div class="content">
-          <a href="projects/data.html"><img src="images/bottle.png" class="organs item random"></a>
-          <a href="projects/future.html"><img src="images/shirt.png" class="reading item random"></a>
-          <a href="projects/twilight.html"><img src="images/cam.png" class="twilight item random"></a>
-          <a href="projects/ambient_twitcher.html"><img src="images/binoculars.png" class="twitcher item random"></a>
-          <a href="projects/biodesign.html"><img src="images/gun.png" class="biodesign item random"></a>
-          <a href="projects/bio.html"><img src="images/passport.png" class="bio item random"></a>
-          <a href="projects/kim.html"><img src="images/iphone.png" class="kim item random"></a>
-          <a href="projects/tile.html"><img src="images/tile.png" class="tile item random"></a>
-
+      <a href="projects/fossil.html"><img src="images/bottle.png" class="organs item random"></a>
+      <a href="projects/future.html"><img src="images/papers.png" class="reading item random"></a>
+      <a href="projects/canisters.html"><img src="images/canister.png" class="reading item random"></a>
+      <a href="projects/twilight.html"><img src="images/cam.png" class="twilight item random"></a>
+      <a href="projects/twitcher.html"><img src="images/binoculars.png" class="twitcher item random"></a>
+      <a href="projects/biodesign.html"><img src="images/gun.png" class="biodesign item random"></a>
+      <a href="projects/bio.html"><img src="images/passport.png" class="bio item random"></a>
+      <a href="projects/facial.html"><img src="images/iphone.png" class="kim item random"></a>
+      <a href="projects/archaeology.html"><img src="images/trowl.png" class="kim item random"></a>
+      <a href="projects/haircare.html"><img src="images/brush.png" class="kim item random"></a>
     </div>
-  </div>
-</div>
-
-<script>
-
-var coords = [];
-
-function space(coords, bodyWidth, bodyHeight) {
-  while (true) {
-    var randPosX = Math.floor((Math.random() * (bodyWidth-(0.3*bodyWidth))+(0.05*bodyWidth)));
-    var randPosY = Math.floor((Math.random() * (bodyHeight-(0.35*bodyHeight))+(0.05*bodyHeight)));
-    let i;
-    for (i=0; i < coords.length; i++) {
-      if (Math.hypot(randPosX-coords[i][0], randPosY-coords[i][1]) < 200) {
-        break;
-      }
-      if (i == coords.length-1) {
-        coords.push([randPosX, randPosY])
-        return [randPosX, randPosY]
-      }
-    }
-  }
-}
-
-$(document).ready(function() {
-  var bodyWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-  var bodyHeight = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-
-  $('.random').each(function(idx, img) {
-    if (coords == 0) {
-      var randPosX = Math.floor((Math.random() * (bodyWidth-(0.3*bodyWidth))+(0.05*bodyWidth)));
-      var randPosY = Math.floor((Math.random() * (bodyHeight-(0.35*bodyHeight))+(0.05*bodyHeight)));
-      coords.push([randPosX, randPosY])
-      $(img).css('left', randPosX);
-      $(img).css('top', randPosY);
-    }
-    else {
-      let positions = space(coords, bodyWidth, bodyHeight)
-      $(img).css('left', positions[0]);
-      $(img).css('top', positions[1]);
-    }
-  });
-});
-</script>
+<script src="scramble.js"></script>
+<footer>
+  <a href="projects/bio.html"><p class="name">Sean Greaves | 2022</p></a>
+</footer>
 </body>
 </html>

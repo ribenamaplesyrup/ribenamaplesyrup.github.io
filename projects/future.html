@@ -4,190 +4,45 @@
 <title>Sean Greaves</title>
 <meta charset="utf-8"/>
 </head>
-<!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
-<link rel="stylesheet" href="https://unpkg.com/carbon-components/css/carbon-components.min.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://d3js.org/d3.v4.js"></script>
+
 <body>
-<div class="bx--grid">
 
-    <div class="bx--row"></div>
+<div class="nav">
+  <a href="../index.html"><p class="back"><<</p></a>
+</div>
 
-  <div class="bx--row">
-    <div class="bx--col-lg-16">
-      <div class="bx--col">
-        <a href="../index.html">
-      <h1 class="back"><<</h1></a>
-    </div>
-    </div>
-  </div>
-
-  <div class="bx--row"></div>
-
-  <div class="bx--row">
-  <div class="bx--col-md-2 bx--col-sm-1 bx--aspect-ratio bx--aspect-ratio--16x4 info" id="tool_1">
-    <h2>Shared Futures</h2>
-    <br>
-    <br>
-    <p1>r/Futurology is a popular subreddit for sharing articles on emerging technologies. The subreddit has been going since 2012. I was keen to explore what years are discussed most within articles shared in the subreddit. <br><br> I scraped thousands of articles from the Guardian (one of the most popular domains for sharing) and mapped the articles to future or past years mentioned within them. <p1 class="glow">Feel free to click</p1> the datapoints to explore the futurologist's gaze.</p1>
-    <br><br><p1>The visualisation depicts clear gravitational pulls to future decades (2030, 2040 and 2050). These ledges become locations to store predicted milestones, targets, plans for terraforming, stark warnings and naive roadmaps.<p1>
-
-  </div>
-  </div>
-  <div class="bx--row">
-  <!-- <div class="bx--col-md-2 bx--col-sm-1 info">
-    <p1>r/Futurology is a popular subreddit for sharing articles on emerging technologies. The subreddit has been going since 2012. I was keen to explore what years are discussed most within articles shared in the subreddit. <br><br> I scraped thousands of phys.org articles (the most popular domain for sharing) and mapped the articles to future or past years mentioned within them. Feel free to click the datapoints to explore the futurologist's gaze.</p1>
-    <br>
-  </div> -->
-
-  <!-- <div class="bx--offset-lg-3 bx--offset-md-2 bx--col-lg-6 bx--col-md-4"> -->
-
-    <div class="bx--offset-lg-3 bx--offset-md-2  bx--col-md-4 bx--col-sm-2">
-      <div class="center">
-        <div id="graph">
+<div class="row content-box">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+    <div class="row center-xs">
+      <div class="col-xs-10 col-sm-8 col-md-8 col-lg-7">
+        <br>
+        <br>
+        <br>
+        <div class ="inner">
+        <h3>Shared Futures</h3>
+        <br>
+        <p1>r/Futurology is a popular subreddit for sharing articles on emerging technologies. I was curious to explore what years are discussed most within articles shared in the subreddit since its inception in 2012.</p1>
+          <br><br>
+        <p1>The Guardian is one of the most popular sources for articles shared in the subreddit. I scraped thousands of articles shared from the Guardian and parsed dates from the articles using the Stanford NLP library. The adjacent heat map references the years mentioned within each article against the date the article was shared.</p1>
+        <br><br>
+          <div class="row center-xs">
+            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
+              <div id="graph"></div>
+              <div id="tool">
+            </div>
+          </div>
+          <script src="future.js"></script>
         </div>
       </div>
     </div>
-
-    <div class="bx--col-md-2 bx--col-sm-1">
-          <div id="tool">
-        </div>
-    </div>
   </div>
-  </div>
-  <script>
-
-  var margin = {top: 50, right: 100, bottom: 150, left: 100},
-    width = 700 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
-
-  var x = d3.scaleTime().range([0, width]),
-      y = d3.scaleLinear().range([height, 0]),
-      z = d3.scalePow().range(["#736f6f", "#ee5396"]);
-
-  // The size of the buckets in the CSV data file.
-      yStep = height/101;
-
-
-
-  var svg = d3.select("#graph").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .call(responsivefy)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  d3.csv("/projects/guardian_2011-2020_urls.csv", function(error, buckets) {
-    if (error) throw error;
-
-    var parseTime = d3.timeParse("%Y-%m")
-    var parseMonth = d3.timeParse("%Y-%m")
-    buckets.forEach(function(d) {
-      d.name = parseMonth(d.group).toLocaleString('default', { month: 'long' });
-      d.group = parseTime(d.group);
-      d.year = d.group.getFullYear();
-      d.month = d.group.getMonth()+2;
-      d.final = parseTime(JSON.stringify(d.year) + "-" + JSON.stringify(d.month))
-      d.variable = +d.variable;
-      d.value = +d.value;
-    });
-
-    x.domain([parseTime("2013-6"), parseTime("2021-1")])
-    y.domain([1970,2071])
-    z.domain([0, d3.max(buckets, function(d) { return d.value; })]);
-
-  // build tooltip
-    var tooltip = d3.select("#tool")
-      .append("div")
-      .attr("class", "tooltip")
-      .style("text-align", "left")
-      .html("")
-
-    var click = function(d, i) {
-      d3.selectAll('.highlight')
-        .style('fill', function(d) { return z(d.value); })
-        .attr('class', "tile")
-
-      d3.select(this)
-        .style('fill', '#33b1ff')
-        .attr('class', 'highlight')
-
-      tooltip
-        .html("Articles shared in " + d.name + ", " + d.year + "<br> that mention " + d.variable + ":<br><br><br><br>" + d.articles)
-        .style("left", (d3.mouse(this)[0]) + "px")
-        .style("top", (d3.mouse(this)[1]) + "px")};
-
-  // build the graph
-
-    svg.selectAll(".tile")
-        .data(buckets)
-      .enter().append("rect")
-        .attr("class", "tile")
-        .attr("x", function(d) { return x(d.group); })
-        .attr("y", function(d) { return y(d.variable + 1); })
-        .attr("width", function(d) { return x(d.final)-x(d.group)})
-        .attr("height", yStep)
-        .attr("color", function(d) { return z(d.value); })
-        // .attr("height",  y(0) - y(yStep))
-        .style("fill", function(d) { return z(d.value); })
-      .on("click", click);
-
-    // Add an x-axis with label.
-    svg.append("g")
-        .attr("class", "x_axis")
-        .attr("transform", "translate(0," + height + ")")
-        // .call(d3.axisBottom().scale(x).ticks(d3.timeDays).tickFormat(formatDate).orient("bottom"))
-        .call(d3.axisBottom(x).ticks(12))
-      .append("text")
-      //   .attr("class", "label")
-        .attr("x", width)
-        .attr("y", 50)
-        .attr("text-anchor", "end")
-        .text("Reddit Share Date");
-
-
-
-    // Add a y-axis with label.
-    svg.append("g")
-        .attr("class", "y_axis")
-        .call(d3.axisLeft(y).ticks(10).tickFormat(d3.format("d")))
-      .append("text")
-        .attr("class", "label")
-        .attr("y", -80)
-        .attr("dy", ".71em")
-        .attr("text-anchor", "end")
-        .attr("transform", "rotate(-90)")
-        .text("Year");
-
-  });
-
-
-  function responsivefy(svg) {
-      // get container + svg aspect ratio
-      var container = d3.select(svg.node().parentNode),
-          width = parseInt(svg.style("width")),
-          height = parseInt(svg.style("height")),
-          aspect = width / height;
-
-      // add viewBox and preserveAspectRatio properties,
-      // and call resize so that svg resizes on inital page load
-      svg.attr("viewBox", "0 0 " + width + " " + height)
-          .attr("perserveAspectRatio", "xMinYMid")
-          .call(resize);
-
-      d3.select(window).on("resize." + container.attr("id"), resize);
-
-      // get width of container and resize svg to fit it
-      function resize() {
-          var targetWidth = parseInt(container.style("width"));
-          svg.attr("width", targetWidth);
-          svg.attr("height", Math.round(targetWidth / aspect));
-      }
-  }
-
-  </script>
-
+  <br>
+  <br>
+</div>
 </div>
 </body>
 </html>

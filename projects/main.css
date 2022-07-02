@@ -1,4 +1,81 @@
+/* essential components */
 
+.nav {
+  position:absolute;
+  top: 0;
+  z-index: 1;
+
+}
+
+.back {
+  overflow: hidden;
+  font-size: 1.5vw;
+  padding-left: 30px;
+  font-family: "IBM Plex Mono";
+  color: #edf5ff;
+}
+
+a {
+  color: lime;
+  font-weight: bold;
+}
+
+h4 {
+  color: white;
+}
+
+body {
+  /* background-color: #171414; */
+  background-image: linear-gradient(rgba(146,146,146,1), rgba(0,118,186,1));
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
+  overflow: hidden;
+  margin: 0px;
+  position:relative;
+}
+
+.content-box {
+  overflow-y: hidden;
+  z-index: 0;
+}
+
+.inner {
+  border-style: solid;
+  padding: 50px;
+  border-color: white;
+}
+
+.credits {
+  font-weight: lighter;
+  color: white;
+}
+
+.image {
+  max-width:100%;
+}
+
+.content {
+  font-size:1.0vw;
+  font-family: "IBM Plex Mono";
+  overflow-y: scroll;
+  height: 100%;
+}
+
+figure {
+    display: flex;
+    flex-flow: column;
+}
+
+figcaption {
+  color: white;
+  font-weight: lighter;
+  font-size: 0.8vw;
+  text-align: left;
+}
+
+
+/*
 .dawn1 {
   z-index: 10;
   clip-path: polygon(50% 50%, 50% 0, 50% 0);
@@ -107,12 +184,12 @@ a {
   text-align:center;
 }
 
-.center {
+/* .center {
   text-align:center;
   position: relative;
   max-height: 90vh;
   max-width: 100%;
-}
+} */
 
 .bx--row {
   margin-right: 0;
@@ -122,7 +199,9 @@ a {
 
 .info {
   font-size:1.0vw;
-  font-family: "IBM Plex Mono"
+  font-family: "IBM Plex Mono";
+  overflow-y: scroll;
+  height: 100%;
 }
 
 a {
@@ -130,17 +209,33 @@ a {
 }
 
 body {
-  background-color: #171414;
-}
-
-html, body {
+  /* background-color: #171414; */
+  background-image: linear-gradient(rgba(146,146,146,1), rgba(0,118,186,1));
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
   overflow: hidden;
-  height:100%;
+  margin: 0px;
+  position:relative;
 }
 
-.twitch {
-  max-height: 75vh;
-  max-width: 100%;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.info::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.info {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.anchor {
+  display:flex;
+  flex-direction:column;
+  min-height: 100vh;
+
 }
 
 .item {
@@ -148,10 +243,10 @@ html, body {
   max-width: 25vh;
 }
 
-h2 {
+h3 {
   font-size:1.8vw;
   font-family: "IBM Plex Mono";
-  color: #edf5ff;
+  color: white;
 }
 
 h1 {
@@ -174,6 +269,10 @@ h1 {
   font-size:1.1vw;
 }
 
+.credits {
+  font-weight: lighter;
+}
+
 .arrow {
   display: inline-block;
   font-family: "IBM Plex Mono";
@@ -194,21 +293,46 @@ h1 {
   color: #171414;
 }
 
-.back {
-  overflow: hidden;
+header {
+  /* min-height:70px;
+  margin-top:auto;
+  padding-right: 30px; */
+  text-align: left;
   font-family: "IBM Plex Mono";
-  color: #edf5ff;
 }
+
+/* header {
+  height: 5vh;
+} */
+
 
 p1 {
   color: #edf5ff;
+  text-align: left;
+  display: inline-block;
+
 }
 
-.footer {
+/* .footer {
    position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
+} */
+
+
+footer {
+  min-height:70px;
+  margin-top:auto;
+  padding-right: 1.0vw;
+  text-align: right;
+  font-family: "IBM Plex Mono";
+  display:block;
+}
+
+.name {
+  color: white;
+  font-size: 1.0vw;
 }
 
 .split {
@@ -320,13 +444,3 @@ p1 {
   display: block;
   margin: auto;
 }
-
-/* @-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0043ce, 0 0 40px #0043ce, 0 0 50px #0043ce, 0 0 60px #0043ce, 0 0 70px #0043ce;
-  }
-
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #001d6c, 0 0 40px #001d6c, 0 0 50px #001d6c, 0 0 60px #001d6c, 0 0 70px #001d6c, 0 0 80px #001d6c;
-  }
-} */
