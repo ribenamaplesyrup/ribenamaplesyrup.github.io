@@ -3,26 +3,26 @@
 <head>
 <title>Sean Greaves</title>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 <link rel="stylesheet" type="text/css" href="main.css">
 <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
-
+<link href='https://fonts.googleapis.com/css?family=IBM Plex Sans' rel='stylesheet'>
 <body>
-
-<div class="nav">
-  <a href="../index.html"><p class="back"><<</p></a>
+<div class="nav-outer">
+  <a href="../index.html"><h1 class="back">←</h1></a>
 </div>
-
 <div class="row content-box">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+    <div class="nav">
+      <a href="../index.html">
+        <h1 class="back">←</h1></a>
+    </div>
     <div class="row center-xs">
       <div class="col-xs-10 col-sm-8 col-md-8 col-lg-7">
-        <br>
-        <br>
-        <br>
         <div class ="inner">
-        <h3>Detecting Tear Gas Canisters with Limited Training Data</h3>
+        <h1>Detecting Tear Gas Canisters with Limited Training Data</h1>
         <br>
         <p1>Human rights investigations often require triaging large volumes of open source data in order to find moments within image, or video that are relevant to a given investigation and warrant further inspection. 37-40mm tear gas canisters are some of the most common munitions used against protesters worldwide, however searching for images containing tear gas usage online manually is laborious and time-consuming.
           <br><br>
@@ -30,10 +30,9 @@
             <div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
               <figure>
                 <img src="images/canisters/canisters_2.png" class="image">
-                <figcaption>
-                  <p>Dataset of tear gas canisters curated by Forensic Architecture containing both real (left) and synthetic images (right)</p>
-                  </figcaption>
+                <figcaption>Dataset of tear gas canisters curated by Forensic Architecture containing both real (left) and synthetic images (right)</figcaption>
               </figure>
+              <br>
             </div>
           </div>
           Working with a team of open-source researchers guided by Forensic Architecture, we focussed on applying object detection models to facilitate discovery and identification of tear gas canisters for human rights monitors. For convolutional neural network (CNN) based object detection to work, a large amount of training data is required. To achieve our objective, we benchmarked methods for training object detectors using limited labelled data: we fine-tuned different object detection models on the limited labelled data and compared performance to a few shot detector and augmentation strategies using synthetic data. We provided a dataset for evaluating and training tear gas canister detectors and showed how such detectors can be deployed for a real world application such as investigating human rights violations.
@@ -42,18 +41,16 @@
             <div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
               <figure>
                 <img src="images/canisters/canisters.png" class="image">
-                <figcaption>
-                  <p>Detections on test dataset with RetinaNet</p>
-                  </figcaption>
+                <figcaption>Detections on test dataset with RetinaNet</figcaption>
               </figure>
+              <br>
             </div>
           </div>
           Our experiments demonstrated that fine-tuned state of the art detectors perform as well as the few shot detector, and including synthetic data can improve results. This research is summarised within a paper accepted to the Winter Conference for Applications of Computer Vision 2022. My contributions involved training several state of the art detectors (Faster R-CNN and RetinaNet) for benchmarking, data labelling and pre-processing as well as report writing.
           <br><br>
-          <a href="https://ieeexplore.ieee.org/document/9706699?signout=success" target="_blank">Publication</a>
+          <a href="https://ieeexplore.ieee.org/document/9706699?signout=success" target="_blank">Publication</a></p1>
           <br><br>
           <div class="credits">Collaboration with Lachlan Kermode, Chris Tegho and Ashwin D’Cruz</div>
-        </p1>
        <br>
       </div>
     </div>

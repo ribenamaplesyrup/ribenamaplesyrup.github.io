@@ -3,34 +3,34 @@
 <head>
 <title>Sean Greaves</title>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 <link rel="stylesheet" type="text/css" href="main.css">
 <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=IBM Plex Sans' rel='stylesheet'>
 <script src="https://d3js.org/d3.v4.js"></script>
-
 <body>
-
-<div class="nav">
-  <a href="../index.html"><p class="back"><<</p></a>
+<div class="nav-outer">
+  <a href="../index.html"><h1 class="back">←</h1></a>
 </div>
-
 <div class="row content-box">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+    <div class="nav">
+      <a href="../index.html">
+        <h1 class="back">←</h1></a>
+    </div>
     <div class="row center-xs">
       <div class="col-xs-10 col-sm-8 col-md-8 col-lg-7">
-        <br>
-        <br>
-        <br>
         <div class ="inner">
-        <h3>Shared Futures</h3>
+        <h1>Shared Futures</h1>
         <br>
         <p1>r/Futurology is a popular subreddit for sharing articles on emerging technologies. I was curious to explore what years are discussed most within articles shared in the subreddit since its inception in 2012.</p1>
           <br><br>
         <p1>The Guardian is one of the most popular sources for articles shared in the subreddit. I scraped thousands of articles shared from the Guardian and parsed dates from the articles using the Stanford NLP library. The heat map below references the years mentioned within each article against the date the article was shared. Feel free to click on a location within the heatmap to view the reference articles.</p1>
         <br><br>
           <div class="row center-xs">
-            <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div id="graph"></div>
               <div id="tool">
             </div>
