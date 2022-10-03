@@ -146,8 +146,12 @@ a {
 
 body {
   background-image: linear-gradient(rgba(145,146,148,1), rgba(185,142,151,1));
-  background-size: cover;
+  /* background-size: cover; */
   padding: 10px;
+}
+
+html, body {
+  min-height: 100%;
 }
 
 .name {
@@ -194,8 +198,6 @@ h4 {
   border-left-style: solid;
     border-bottom-style: none;
     border-top-style: solid;
-}html {
-    width: 100vw;
 }
 
 html {
