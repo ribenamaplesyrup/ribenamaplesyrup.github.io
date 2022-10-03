@@ -268,3 +268,7 @@ h4 {
   color: #edf5ff;
   /* font-weight: bold; */
 }
+
+html {
+    width: 100vw;
+}
