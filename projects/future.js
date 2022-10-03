@@ -1,6 +1,6 @@
-var margin = {top: 50, right: 100, bottom: 150, left: 100},
+var margin = {top: 30, right: 100, bottom: 100, left: 100},
   width = 700 - margin.left - margin.right,
-  height = 700 - margin.top - margin.bottom;
+  height = 630 - margin.top - margin.bottom;
 
 var x = d3.scaleTime().range([0, width]),
     y = d3.scaleLinear().range([height, 0]),
