@@ -131,11 +131,18 @@ img {
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
   .column {
     float: left;
-
     width: 50%;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .column {
+    float: left;
+    width: 100%;
   }
 }
 
