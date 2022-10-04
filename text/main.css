@@ -131,18 +131,11 @@ img {
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .column {
     float: left;
-    width: 50%;
-    padding: 5px;
-  }
-}
 
-@media screen and (max-width: 400px) {
-  .column {
-    float: left;
-    width: 100%;
+    width: 50%;
   }
 }
 
@@ -173,7 +166,7 @@ h3 {
 h4 {
   font-family: "IBM Plex Mono";
   color: #edf5ff;
-  font-weight: 400;
+  /* font-weight: bold; */
 }
 
 .unselect-tab {
