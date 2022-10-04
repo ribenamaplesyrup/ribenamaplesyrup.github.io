@@ -121,13 +121,16 @@ figcaption {
   text-align: center;
   margin:auto;
   font-size: 14px;
+  font-weight: 400;
 
 }
 
 figure {
   text-align: center;
   color: white;
-  font-family: "IBM Plex Mono ExtraLight";
+  font-family: "IBM Plex Mono";
+  font-weight: 500;
+
 }
 
 .tooltip {
