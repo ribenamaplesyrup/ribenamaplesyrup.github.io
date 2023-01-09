@@ -197,9 +197,9 @@ h4 {
 
 .select-tab {
   border: 1px solid;
-  margin-right: -1px;
+/*   margin-right: -1px;
   margin-left: -1px;
-  margin-top: -1px;
+  margin-top: -1px; */
   margin-bottom: -1px;
     border-right-style: solid;
   border-left-style: solid;
