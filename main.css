@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+html { visibility:hidden; }
+
 .flex-container {
   display: flex;
 }
