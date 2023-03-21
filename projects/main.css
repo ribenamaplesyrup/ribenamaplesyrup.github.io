@@ -80,9 +80,9 @@
   margin: auto;
 }
 
-.row {
+/* .row {
   margin: 8px -16px;
-}
+} */
 
 .column {
   float: left;
@@ -278,4 +278,17 @@ h4 {
 
 html {
     width: 100vw;
+}
+
+.flex-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.flex-row-container > .flex-row-item {
+    flex: 1 1 30%; /*grow | shrink | basis */
+}
+
+.flex-row-item {
 }
