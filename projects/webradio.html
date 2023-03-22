@@ -49,9 +49,16 @@ artists, collectives and scenes that might
 otherwise remain submerged in the endless
 stream of sound.</p>
 <br>
-          <figure>
-            <iframe width="100%" height="651" style="border:1px solid white;" frameborder="0"
-  src="https://observablehq.com/embed/2c4f5ee3f8c97949?cells=chart"></iframe>
+          <figure style="overscroll-behavior: none;">
+            <div id="observablehq-chart-107d211b"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/d/2c4f5ee3f8c97949.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-107d211b"));
+});
+</script>
             <figcaption>Visualisation of the shared record labels and artists played across nearly 80 shows by artist James K and record label Posh
                                                          Isolation</figcaption>
           </figure>
