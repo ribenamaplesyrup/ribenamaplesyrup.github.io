@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sean Greaves</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sean Greaves' Portfolio">
+  <meta name="keywords" content="Sean Greaves, Design, Technology, Art, Portfolio">
+  <link rel="icon" type="image/x-icon" href="/images/fire.png">
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+<body>
+  <div class="main">
+    <div class="flex-container">
+      <li class="unselect-tab"><a class="quiet-link" href="../index.html"><h3>bio</h3></a></li>
+      <li class="select-tab unselect-tab"><a class="quiet-link" href="../work.html"><h3>work</h3></a></li>
+      <li class="fl"></li>
+      <!-- <li class="none"><h3 class="name">Sean Greaves</h3></li> -->
+    </div>
+    <div class="content">
+      <div class = "flex-container">
+        <div>
+          <h1 class="project-title">Inpainting the Archive</h1>
+          <br>
+          <p>Inpainting is the task of filling in the missing regions of an image with content. Denoising Diffusion Probabilistic Models (DDPM) represent an emerging paradigm in generative modelling and
+have been shown to outperform state of the art GAN-based approaches to inpainting <a href="https://arxiv.org/abs/2201.09865" target="_blank">(Lugmayr et
+al., 2022</a>). I was curious to explore how this technique could assist associative research workflows through ingesting fragments of conceptually linked imagery and generating new images and conceptual associations. I am attracted to the idea of fragments of information, connected through archives like Wikipedia, becoming spores in culture, growing and
+composing new forms and possibilities.</p>
+<br>
+<figure>
+  <img style="max-width:100%" src="images/archival/deception_tryp.png">
+  <figcaption>Selection of images from Wikipedia pages that backlink to the entry for <a href="https://en.wikipedia.org/wiki/Deception" target="_blank">Deception</a>: <a href="https://en.wikipedia.org/wiki/Secrecy" target="_blank">Secrecy</a> (left), <a href="https://en.wikipedia.org/wiki/Signals_intelligence" target="_blank">Signal Intelligence</a> (middle) & <a href="https://en.wikipedia.org/wiki/Scrabble" target="_blank">Scrabble</a> (right)</figcaption>
+</figure>
+<br>
+<div class="row">
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/secrecy_map.png">
+      <figcaption>Backlink fragment map:<br>1 - <a href="https://commons.wikimedia.org/wiki/File:Scrabble_game_in_progress.jpg" target="_blank">Scrabble</a><br>2 - <a href="https://commons.wikimedia.org/wiki/File:Menwith-hill-radomes.jpg" target="_blank">Signal Intelligence</a><br>3 - <a href="https://commons.wikimedia.org/wiki/File:Moritz_Stifter_Das_Geheimnis_1885.jpg" target="_blank">Secrecy</a><br></figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/secrecy.png">
+      <figcaption>Image generated from 'Deception' backlinked image fragments</figcaption>
+    </figure>
+  </div>
+</div>
+<br>
+<p>Inspired by the anchors black-box model interpretability algorithm (<a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf" target="_blank">Ribeiro et al., 2018</a>) for
+visualising the contribution of regions within an image towards a machine learning model’s
+classification, I defined an alternative system leveraging Wikimedia’s extensive image archive
+that combines regions of images to generate any number of ambiguous and unclassifiable images. I'm continuing to explore the how fragments of images can be used to reinforce binary classifications
+whilst also acting as portals to an infinite array of new images and potential associations.</p>
+<br><br>
+<div class="row">
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/map.png">
+      <figcaption>Backlink fragment map:<br>
+1, 2, 6 - <a href="https://commons.wikimedia.org/wiki/File:Aerial_view_of_Grand_Prismatic_(23428929375).jpg" target="_blank">Hot Springs</a><br>
+4 - <a href="https://commons.wikimedia.org/wiki/File:ISS_Unity_module.jpg" target="_blank">International Space Station</a><br>
+3, 5 - <a href="https://commons.wikimedia.org/wiki/File:Mono_lake_reflections.jpg" target="_blank">Spirochaeta americana</a></figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/extremogen.png">
+      <figcaption>Image generated from 'Extremophile' backlinked image fragments</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/aerial_map.png">
+      <figcaption>‘Unmanned aerial vehicle’ backlinks:<br>
+1 - <a href="https://commons.wikimedia.org/wiki/File:Disney%27s_Typhoon_Lagoon_(28923104866).jpg" target="_blank">Walt Disney World</a><br>
+2 - <a href="https://commons.wikimedia.org/wiki/File:Forest_LIDAR.jpg" target="_blank">Lidar</a><br>
+3 - <a href="https://commons.wikimedia.org/wiki/File:DARPA_HQ_(52368078715).jpg" target="_blank">DARPA</a></figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/aerial.png">
+      <figcaption>Image generated from 'Unmanned aerial vehicle' backlinked image fragments</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/tax_map.png">
+      <figcaption>‘Tax’ backlinks:<br>
+1,4 - <a href="https://commons.wikimedia.org/wiki/File:Gloomy_Sunset_After_The_Rain_in_Kampar.jpg" target="_blank">Perak</a> <br>
+2 - <a href="https://commons.wikimedia.org/wiki/File:Bequer-B100-SOJA-SOYBEAM.jpg" target="_blank">Biodiesel</a><br>
+3 - <a href="https://commons.wikimedia.org/wiki/File:Cop%C3%A1n_Stela_P.jpg" target="_blank">610s</a></figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure>
+      <img style="max-width:100%" src="images/archival/tax.png">
+      <figcaption>Image generated from 'Tax' backlinked image fragments</figcaption>
+    </figure>
+  </div>
+</div>
+<p>  Inspiration for this system was developed over a number of evenings leading a Creative Coding meet-up during a programming retreat at the Recurse Center in NYC.
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
