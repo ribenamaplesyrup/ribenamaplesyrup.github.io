@@ -106,7 +106,7 @@ img {
   margin-right: auto;
   display: block;
   max-height:80%;
-  max-width:80%;
+  max-width:100%;
 }
 
 p {
@@ -118,17 +118,17 @@ p {
 
 figcaption {
   padding:10px;
-  max-width:80%;
-  text-align: center;
+  max-width:100%;
+  text-align: left;
   margin:auto;
-  font-size: 14px;
+  font-size: 12px;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500;
 
 }
 
 figure {
-  text-align: center;
+  text-align: left;
   color: white;
   font-family: 'IBM Plex Mono', monospace;
   /* font-family: "IBM Plex Mono"; */

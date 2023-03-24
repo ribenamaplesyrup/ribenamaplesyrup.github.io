@@ -29,53 +29,54 @@
           <h1 class="project-title">Sugartrail</h1>
           <br>
           <p>
-            <a href="https://github.com/ribenamaplesyrup/sugartrail" target="_blank">Sugatrail</a> is a network analysis and visualisation tool developed to empower OSINT researchers to navigate corporate ownership networks using data from the UK Companies House register with greater ease and agility. The tool was developed within a self-directed 2-month tech fellowship awarded by the investigative journalism group Bellingcat and funded by the Alfred Landecker Foundation.
+            <a href="https://github.com/ribenamaplesyrup/sugartrail" target="_blank">Sugatrail</a> is a tool for building and visualising corporate ownership networks using data from the UK Companies House register. This project was developed within a self-directed 2-month tech fellowship awarded by the investigative journalism group Bellingcat and funded by the Alfred Landecker Foundation.
           </p>
           <br>
+          <figure>
+            <img src="images/sugartrail/triangle.png" class="half">
+            <!-- <figcaption>Companies, Officers and Addresses</figcaption> -->
+          </figure>
+          <br>
           <p>
-          I was motivated to develop this tool after becoming fascinated with the cluster of American candy stores that popped up on post-pandemic Oxford Street, investigated for tax evasion and sale counterfeit products. Investigators at the Financial Times analysed Companies House filings for many of the companies and found them to exist as a loose network of ownership with officers moving between companies and companies shifting between a number of common addresses.
-          The complexity and scale of these weird networks and the lack of relevant tools for analysing them led me begin prototyping.</p>
+          My initial motivation to develop this tool came through my fascination with the cluster of American candy stores on post-pandemic Oxford Street that have recently been investigated for tax evasion and sale of counterfeit products. <a href="https://www.ft.com/candy" target="_blank">Journalists at the Financial Times</a> analysed Companies House filings for many of these mysterious companies and found them to exist as a loose ownership network with officers moving between companies and companies shifting between a number of common addresses.
+          The complexity and scale of these networks coupled with the lack of relevant tools for analysing them led me to begin prototyping.</p>
           <br><br>
           <figure>
             <img src="images/sugartrail/candy.png" class="image">
             <figcaption>In 2022 there were 30 American candy and souvenir shops on Oxford Street</figcaption>
           </figure>
+          <br>
           <figure>
             <img src="images/sugartrail/house.png" class="image">
             <figcaption>Companies House paper filings</figcaption>
           </figure>
           <br>
           <p>
-          The resulting Python-based tool enables users to build networks of companies, officers and addresses connected within a user-specified degrees of seperation. The tool can be used to build networks from a single company as well as for checking if any two companies are connected.</p>
+          Sugartrail enables users to build networks of companies, officers and addresses connected within x-degrees of seperation. The tool can build networks that extend from a single company whilst also checking to see if two companies are connected within x-degrees of seperation.</p>
           <br><br>
           <figure>
-            <img src="images/sugartrail/triangle.png" class="half">
-            <!-- <figcaption>Companies, Officers and Addresses</figcaption> -->
-          </figure>
-          <br>
-          <figure>
             <img src="images/sugartrail/network.png" class="image">
-            <figcaption>Small example network constructed within 2 degrees of seperation from a single input company (Western Crown Limited)</figcaption>
+            <figcaption>Small example network constructed within 2 degrees of seperation of the input company (Western Crown Limited)</figcaption>
           </figure>
           <br>
           <figure>
             <img src="images/sugartrail/map.png" class="image">
-            <figcaption>Geospatial interface plotting all companies within the network on a map. Table beneath map plots the path from a user-selected company to the origin company</figcaption>
+            <figcaption>Dashboard mapping companies within a network. Users can select a company and view the connection path to the origin company</figcaption>
           </figure>
           <br><br>
           <figure>
             <img src="images/sugartrail/path.png" class="image">
-            <figcaption>Check if two companies are connected within x-degrees of seperation ie Zahawi & Zahawi and Gorgeous Services Limited</figcaption>
+            <figcaption>Check if two companies are connected within x-degrees of seperation (for example, Zahawi & Zahawi and Gorgeous Services Limited)</figcaption>
           </figure>
-          <br><br>
+          <br>
           <figure>
             <div style="padding:66.25% 0 0 0;position:relative;"><iframe src="https://www.youtube.com/embed/evPXGTj33LQ" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
-            <figcaption>Dashboard Demo</figcaption>
+            <figcaption>Demo of the Sugartrail dashboard</figcaption>
           </figure>
           <br>
             <br>
-            <p><a href="https://www.bellingcat.com/resources/2022/09/19/identifying-suspicious-businesses-reddit-analysis-and-tracking-russian-propaganda-here-are-the-results-of-bellingcats-first-ever-hackathon/" target="_blank">Identifying Suspicious Businesses, Reddit Analysis and Tracking Russian Propaganda: Here are the Results of Bellingcat’s First Ever Hackathon</a></p>
-<p><a href="https://gijn.org/2023/02/27/new-reporting-tools-online-reviews/" target="_blank">New Reporting Tools to Archive Videos, Find QAnon Networks, and Track Targets via Online Reviews</a></p>        </div>
+            <p><a href="https://www.bellingcat.com/resources/2022/09/19/identifying-suspicious-businesses-reddit-analysis-and-tracking-russian-propaganda-here-are-the-results-of-bellingcats-first-ever-hackathon/" target="_blank">Identifying Suspicious Businesses, Reddit Analysis and Tracking Russian Propaganda: Here are the Results of Bellingcat’s First Ever Hackathon - Bellingcat</a></p>
+<p><a href="https://gijn.org/2023/02/27/new-reporting-tools-online-reviews/" target="_blank">New Reporting Tools to Archive Videos, Find QAnon Networks, and Track Targets via Online Reviews - Global Investigative Journalism Network</a></p>        </div>
       </div>
     </div>
   </div>
