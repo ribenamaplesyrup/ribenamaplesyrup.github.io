@@ -216,10 +216,10 @@ figure {
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
-    padding: 0px;
+    padding: 10px;
   }
   figure {
-    margin: 0px;
+    margin: auto;
   }
   .half {
     width:100%;
