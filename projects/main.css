@@ -106,14 +106,15 @@ img {
   margin-right: auto;
   display: block;
   max-height:80%;
-  max-width:100%;
+  max-width: 100%;
 }
 
 p {
   /* font-family: "IBM Plex Mono"; */
   font-family: 'IBM Plex Mono', monospace;
-  font-weight: 300;
+  font-weight: 400;
   color: white;
+  font-size: 18px;
 }
 
 figcaption {
@@ -121,19 +122,21 @@ figcaption {
   max-width:100%;
   text-align: left;
   margin:auto;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'IBM Plex Mono', monospace;
-  font-weight: 500;
+  font-weight: 100;
 
 }
 
 figure {
-  max-width: 80%
-  text-align: left;
   color: white;
   font-family: 'IBM Plex Mono', monospace;
   /* font-family: "IBM Plex Mono"; */
-  font-weight: 500;
+  font-weight: 100;
+  max-width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
