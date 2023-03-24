@@ -128,6 +128,7 @@ figcaption {
 }
 
 figure {
+  max-width: 80%
   text-align: left;
   color: white;
   font-family: 'IBM Plex Mono', monospace;
