@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lexend", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background: #fafafa;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background: #333;
+    margin-bottom: 40px;
+}
+
+.bio {
+    font-size: 0.9rem;
+    margin-bottom: 50px;
+    color: #444;
+}
+
+.bio p {
+    margin-bottom: 1.2em;
+}
+
+.bio a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.bio a:hover {
+    animation: colorShift 0.25s ease-in-out forwards;
+}
+
+.section-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    color: #1a1a1a;
+}
+
+.featured-list {
+    list-style: none;
+    margin-bottom: 50px;
+}
+
+.featured-list li {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.featured-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #666;
+    top: 2px;
+}
+
+.featured-list a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    display: inline;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.featured-list a:hover {
+    animation: colorShift 0.25s ease-in-out forwards;
+}
+
+.source {
+    color: #888;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.contact {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.contact-links a {
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    transition: border-bottom-color 0.25s ease;
+    font-weight: 400;
+}
+
+.contact-links a:hover {
+    animation: colorShift 0.25s ease-in-out forwards;
+}
+
+@keyframes colorShift {
+    0% {
+        color: #333;
+        border-bottom-color: #ddd;
+    }
+    100% {
+        color: #cc0000;
+        border-bottom-color: #cc0000;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .bio {
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
