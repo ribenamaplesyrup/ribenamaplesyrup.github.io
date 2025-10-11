@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,79 +8,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sean Greaves</title>
     <link rel="stylesheet" href="css/styles.css">
-      <link rel="icon" type="image/x-icon" href="/images/fire.png">
+    <link rel="icon" type="image/x-icon" href="/images/fire.png">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
         <h1>Sean Greaves</h1>
-        <div class="divider"></div>
 
-        <div class="bio">
-            <p>Sean Greaves is a technologist and researcher based in London.</p>
-
-            <p>He works at the <a href="https://autonomy.work/" target="_blank">Autonomy Institute</a>, a think tank
-                developing data-driven tools for sustainable
-                economic planning. From 2023, he led the institute's exploration of large language models as an
-                accelerant for progressive actors. He has since developed a range of interventions including a map of Deliveroo's UK <a
-                    href="https://adu.autonomy.work/posts/2023_10_30_dark-kitchen-cartography/" target="_blank">dark
-                    kitchens</a>, an index to <a href="https://www.project2025index.com/"
-                    target="_blank">Project 2025</a>, a dataset of AI-related updates to risk disclosures from the <a
-                    href="https://adu.autonomy.work/posts/2025_05_21_ai_risk/" target="_blank">S&P 500</a>, an network visualisation of <a href="https://adu.autonomy.work/posts/2024_06_28_reform/" target="_blank">Reform
-                    UK's</a> more colorful corporation connections, a catalogue of UK businesses reporting
-                <a href="https://adu.autonomy.work/posts/2025_02_20_crisis-and-commerce/" target="_blank">financial
-                    upside from conflict</a> and a forthcoming newsletter on the climate risks experienced by small and
-                medium-sized enterprises.
-            </p>
-
-            <p>Prior to Autonomy he developed <a href="https://github.com/bellingcat/sugartrail"
-                    target="_blank">software</a> for analysing networks within UK corporate data that has
-                since been used by journalists at Bellingcat and the Financial Times. He holds degrees in Mechanical
-                Engineering and Design Informatics from the University of Edinburgh and previously worked in Applied AI
-                at IBM and Seldon.</p>
-
-            <div class="contact-links">
-                <a href="mailto:seanwgreaves@gmail.com" target="_blank">Email</a>
-                <span class="separator">•</span>
-                <a href="https://github.com/ribenamaplesyrup" target="_blank">GitHub</a>
-                <span class="separator">•</span>
-                <a href="https://www.linkedin.com/in/sean-g-2aa38b12a/" target="_blank">LinkedIn</a>
-            </div>
-
-        <h2 class="section-title">Recently featured in:</h2>
-        <ul class="featured-list">
-            <li>
-                <a href="https://law.stanford.edu/2025/09/10/material-by-design-translating-the-ai-life-cycle-core-principles-into-10-k-risk-and-oversight/" target="_blank">Material by Design: Translating the AI Life Cycle Core Principles into 10-K Risk and Oversight</a>
-                <span class="source">Stanford Law School</span>
-            </li>
-            <li>
-                <a href="https://labourexploitation.org/app/uploads/2025/07/You-get-burnt-outyou-get-exhausted-An-initial-exploration-of-workers-experiences-in-dark-kitchens.pdf" target="_blank">"You get burnt out, you get exhausted": An initial exploration of workers' experiences in dark kitchens</a>
-                <span class="source">Focus on Labour Exploitation</span>
-            </li>
-            <li>
-                <a href="https://www.ituc-csi.org/corporate-underminers-of-democracy-en" target="_blank">Corporate Underminers of democracy</a>
-                <span class="source">International Trade Union Confederation</span>
-            </li>
-            <li>
-                <a href="https://progressive.international/wire/2024-08-30-pi-briefing-no-34-project-2025/en/" target="_blank">PI Briefing No. 34: Project 2025</a>
-                <span class="source">Progressive International</span>
-            </li>
-            <li>
-                <a href="https://www.theguardian.com/politics/article/2024/jun/28/richard-tice-company-green-tech-net-zero" target="_blank">Richard Tice accused of hypocrisy over firm's embrace of green tech</a>
-                <span class="source">The Guardian</span>
-            </li>
-            <li>
-                <a href="https://gijn.org/stories/new-reporting-tools-to-archive-videos-find-qanon-networks-and-track-targets-via-online-reviews/" target="_blank">New Reporting Tools to Archive Videos, Find QAnon Networks, and Track Targets via Online Reviews</a>
-                <span class="source">Global Investigative Journalism Network</span>
-            </li>
-        </ul>
-
+        <div class="view-switcher">
+            <a href="#" id="info-btn" class="active">Info</a>
+            <a href="#" id="projects-btn">Portfolio</a>
         </div>
+        <div id="info-content">
+            <div class="bio">
+                <p>Sean Greaves is a technologist and researcher based in London. He works at the <a href="https://autonomy.work/" target="_blank">Autonomy Institute</a>, a think tank
+                    developing data-driven tools for sustainable
+                    economic planning. From 2023, he led the institute's R&D into large language models as an accelerant for the work of researchers, journalists, campaigners and auditors.
+                </p>
+
+                <p>Prior to Autonomy he developed <a href="https://github.com/bellingcat/sugartrail"
+                        target="_blank">software</a> for analysing networks within UK corporate data that has
+                    since been used by journalists at Bellingcat and the Financial Times. He holds degrees in Mechanical
+                    Engineering and Design Informatics from the University of Edinburgh and previously worked in Applied
+                    AI
+                    at IBM and Seldon.</p>
+
+
+                <h2 class="section-title">Recently featured in:</h2>
+                <ul class="featured-list">
+                    <li>
+                        <a href="https://law.stanford.edu/2025/09/10/material-by-design-translating-the-ai-life-cycle-core-principles-into-10-k-risk-and-oversight/"
+                            target="_blank">Material by Design: Translating the AI Life Cycle Core Principles into 10-K
+                            Risk and Oversight</a>
+                        <span class="source">Stanford Law School</span>
+                    </li>
+                    <li>
+                        <a href="https://labourexploitation.org/app/uploads/2025/07/You-get-burnt-outyou-get-exhausted-An-initial-exploration-of-workers-experiences-in-dark-kitchens.pdf"
+                            target="_blank">"You get burnt out, you get exhausted": An initial exploration of workers'
+                            experiences in dark kitchens</a>
+                        <span class="source">Focus on Labour Exploitation</span>
+                    </li>
+                    <li>
+                        <a href="https://www.ituc-csi.org/corporate-underminers-of-democracy-en"
+                            target="_blank">Corporate Underminers of democracy</a>
+                        <span class="source">International Trade Union Confederation</span>
+                    </li>
+                    <li>
+                        <a href="https://progressive.international/wire/2024-08-30-pi-briefing-no-34-project-2025/en/"
+                            target="_blank">PI Briefing No. 34: Project 2025</a>
+                        <span class="source">Progressive International</span>
+                    </li>
+                    <li>
+                        <a href="https://www.theguardian.com/politics/article/2024/jun/28/richard-tice-company-green-tech-net-zero"
+                            target="_blank">Richard Tice accused of hypocrisy over firm's embrace of green tech</a>
+                        <span class="source">The Guardian</span>
+                    </li>
+                    <li>
+                        <a href="https://gijn.org/stories/new-reporting-tools-to-archive-videos-find-qanon-networks-and-track-targets-via-online-reviews/"
+                            target="_blank">New Reporting Tools to Archive Videos, Find QAnon Networks, and Track
+                            Targets via Online Reviews</a>
+                        <span class="source">Global Investigative Journalism Network</span>
+                    </li>
+                </ul>
+        </div> <div class="info-footer">
+        <hr>
+        <div class="contact-links">
+            <a href="mailto:seanwgreaves@gmail.com" target="_blank">Email</a>
+            <span class="separator">•</span>
+            <a href="https://github.com/ribenamaplesyrup" target="_blank">GitHub</a>
+            <span class="separator">•</span>
+            <a href="https://www.linkedin.com/in/sean-g-2aa38b12a/" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+        </div>
+
+        <div id="projects-content" style="display: none;">
+            <div id="projects-grid-anchor" class="projects-grid">
+
+    {% assign sorted_projects = site.projects | sort: 'year' | reverse %}
+    {% for project in sorted_projects %}
+    <a href="{{ project.url }}" class="project-item-link" data-project-url="{{ project.url }}">
+        <div class="project-item">
+            <div class="project-image">
+                <img src="{{ project.cover_image }}" alt="{{ project.title }} cover image" loading="lazy">
+            </div>
+            <div class="project-info">
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-description">{{ project.description }}</p>
+                <p class="project-date">{{ project.year }}</p> <div class="project-tags">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
+
+            <div id="project-detail-view" class="project-detail-container"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

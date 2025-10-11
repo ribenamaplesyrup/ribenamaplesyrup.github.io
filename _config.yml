@@ -1,0 +1,7 @@
+# _config.yml
+title: Sean Greaves
+description: Technologist and researcher based in London.
+
+collections:
+  projects:
+    output: true # This tells Jekyll to create a page for each project

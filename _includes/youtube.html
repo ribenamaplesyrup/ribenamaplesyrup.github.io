@@ -1,0 +1,20 @@
+{%- comment -%}
+  This first part builds the correct URL.
+  It starts with the base URL, then adds the ?autoplay=1&mute=1
+  parameters only if `include.autoplay` is set to "true".
+{%- endcomment -%}
+
+{%- assign video_src = "https://www.youtube.com/embed/" | append: include.id -%}
+{%- if include.autoplay == "true" -%}
+  {%- assign video_src = video_src | append: "?autoplay=1&mute=1" -%}
+{%- endif -%}
+
+
+<div class="video-responsive-wrapper">
+  <iframe 
+    src="{{ video_src }}" 
+    title="YouTube video player" 
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
