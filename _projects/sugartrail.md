@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Sugartrail"
-description: "Uncover meaningful connections at scale in Companies House"
+description: "Visualising networks of companies, officers and addresses connected within Companies House"
 year: 2022
 tags: [OSINT]
 cover_image: '/images/projects/sugartrail/candy.png'

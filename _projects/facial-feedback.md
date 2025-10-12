@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Facial Feedback"
-description: "Celebrity doppelgänger convergence"
+description: "Doppelgänger keypoint convergence"
 year: 2021
 tags: [Computer Vision]
 cover_image: '/images/projects/facial-feedback/cover.png'

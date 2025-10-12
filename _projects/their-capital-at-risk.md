@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "The Rise of AI as a Threat to the S&P 500"
-description: "A dataset and analysis of new AI-related risks mentioned within US corporate risk disclosures."
+description: "New AI-related risks disclosed by the largest US companies"
 year: 2025
 tags: ['Report', 'Dataset', 'LLMs']
 cover_image: '/images/projects/their-capital-at-risk/cover.png'

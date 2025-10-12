@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Scribe"
-description: "Topic modelling with large-scale free-form survey data"
+description: "LLM-powered topic modelling for large-scale free-form survey responses"
 year: 2024
 tags: [LLMs, Embeddings]
 cover_image: '/images/projects/scribe/cover.png'

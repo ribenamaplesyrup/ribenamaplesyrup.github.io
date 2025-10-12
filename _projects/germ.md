@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Geopolitical and Environmental Risk Monitor (GERM)"
-description: "Uncovering emerging risks across the UK's 3M+ companies"
+description: "Uncovering emerging risks across the UK's 3M+ active companies"
 year: 2024
 tags: [LLMs]
 cover_image: '/images/projects/germ/warthog.jpg'

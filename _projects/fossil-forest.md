@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Fossil Forest"
-description: "Haunted sonics of bottled water"
+description: "The forgotten sonics of plastic water bottles"
 year: 2021
 tags: [Physical Computing]
 cover_image: '/images/projects/fossil-forest/cover.png'
