@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Detecting Tear Gas Canisters with Limited Training Data"
-description: "Training CNNs for onlines investigations"
+description: "Object detection for human rights investigations"
 year: 2021
 tags: [Computer Vision]
 cover_image: '/images/projects/detecting-tear-gas-canisters/cover.jpg'
