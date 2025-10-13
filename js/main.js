@@ -99,10 +99,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initial page load check
-    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
-        projectsBtn.click();
-        loadProject(window.location.pathname);
+    function handleInitialLoad() {
+    const path = window.location.pathname;
+
+    // If the path is a project URL (heuristic: contains '/projects/').
+    // Adjust this check if your project URLs follow a different pattern.
+    if (path.includes('/projects/')) {
+        // 1. Ensure the projects view is visible
+        infoContent.style.display = 'none';
+        projectsContent.style.display = 'block';
+        infoBtn.classList.remove('active');
+        // Note: We don't activate projectsBtn because we're in a detail view.
+
+        // 2. Load the specific project
+        loadProject(path);
+    } else {
+        // Otherwise, default to the info view
+        showInfo();
     }
+}
+
+// Run the initial load handler when the DOM is ready.
+handleInitialLoad();
 });
 
