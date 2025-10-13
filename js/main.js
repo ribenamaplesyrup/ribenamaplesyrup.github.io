@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showInfo() {
         infoContent.style.display = 'block';
         projectsContent.style.display = 'none';
+        projectDetailView.innerHTML = ''; // <-- ADD THIS LINE
         infoBtn.classList.add('active');
         projectsBtn.classList.remove('active');
         history.pushState(null, '', '/');
@@ -38,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function showProjectsGrid() {
         infoContent.style.display = 'none';
         projectsContent.style.display = 'block';
-        projectsGrid.style.display = 'grid'; // Show the grid
-        projectDetailView.style.display = 'none'; // Hide the detail view
+        projectsGrid.style.display = 'grid'; 
+        projectDetailView.innerHTML = ''; // <-- ADD THIS LINE
+        projectDetailView.style.display = 'none'; 
         infoBtn.classList.remove('active');
         projectsBtn.classList.add('active');
         history.pushState(null, '', '/');
