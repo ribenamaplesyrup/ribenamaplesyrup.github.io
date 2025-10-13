@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Element References ---
     const infoBtn = document.getElementById('info-btn');
     const projectsBtn = document.getElementById('projects-btn');
     const infoContent = document.getElementById('info-content');
@@ -6,120 +7,128 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsGrid = document.querySelector('.projects-grid');
     const projectDetailView = document.getElementById('project-detail-view');
 
-    // --- Core View Switching Logic ---
+    // This will hold all our project data after one initial fetch
+    let projectsData = null;
 
+    // --- Data Fetching ---
+    async function fetchProjectData() {
+        if (projectsData) return projectsData; // Return cached data if available
+
+        try {
+            const response = await fetch('/api/projects.json');
+            if (!response.ok) throw new Error('Network response was not ok.');
+            projectsData = await response.json();
+            return projectsData;
+        } catch (error) {
+            console.error('Failed to fetch project data:', error);
+            projectDetailView.innerHTML = '<p>Sorry, projects could not be loaded.</p>';
+            return null;
+        }
+    }
+
+    // --- Core View Switching Logic ---
     function showInfo() {
         infoContent.style.display = 'block';
         projectsContent.style.display = 'none';
         infoBtn.classList.add('active');
         projectsBtn.classList.remove('active');
+        history.pushState(null, '', '/');
     }
 
-    function showProjects() {
-        // --- ADDED CODE: Find and stop the SoundCloud player ---
-        const soundcloudIframe = projectDetailView.querySelector('.soundcloud-embed iframe');
-        if (soundcloudIframe) {
-            soundcloudIframe.src = ''; // This unloads the iframe and stops the audio
-        }
-
+    function showProjectsGrid() {
         infoContent.style.display = 'none';
         projectsContent.style.display = 'block';
-        projectsGrid.style.display = 'grid';
-        projectDetailView.style.display = 'none';
+        projectsGrid.style.display = 'grid'; // Show the grid
+        projectDetailView.style.display = 'none'; // Hide the detail view
         infoBtn.classList.remove('active');
         projectsBtn.classList.add('active');
+        history.pushState(null, '', '/');
     }
 
     // --- Dynamic Project Loading Logic ---
+    function showProjectDetail(projectKey) {
+        if (!projectsData || !projectsData[projectKey]) {
+            projectDetailView.innerHTML = '<p>Sorry, this project could not be found.</p>';
+            return;
+        }
+        
+        const project = projectsData[projectKey];
 
-    async function loadProject(url) {
-        // 1. Show a loading state and deselect the portfolio button
-        // ADDED: Deselect the 'Portfolio' button to show we are in a detail view
-        projectsBtn.classList.remove('active');
-        projectDetailView.innerHTML = '<p class="loading-message">Loading project...</p>';
-        projectsGrid.style.display = 'none';
-        projectDetailView.style.display = 'block';
+        // This is the HTML structure from your old _layouts/project.html
+        const projectHtml = `
+            <div id="project-detail-content">
+                <header class="project-header">
+                    <h2>${project.title}</h2>
+                </header>
+                <div class="project-content">
+                    ${project.content}
+                </div>
+            </div>`;
+
+        projectsGrid.style.display = 'none'; // Hide grid
+        projectDetailView.innerHTML = projectHtml;
+        projectDetailView.style.display = 'block'; // Show detail
         window.scrollTo(0, 0);
 
-        try {
-            // 2. Fetch the content of the project page
-            const response = await fetch(url);
-            if (!response.ok) throw new Error('Network response was not ok.');
-            const pageText = await response.text();
-
-            // 3. Parse the fetched HTML and extract the content
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(pageText, 'text/html');
-            const projectHtml = doc.getElementById('project-detail-content').innerHTML;
-
-            // 4. Inject the content (Back button has been removed)
-            // MODIFIED: The back button link is no longer added here.
-            projectDetailView.innerHTML = projectHtml;
-
-        } catch (error) {
-            projectDetailView.innerHTML = '<p>Sorry, there was an error loading this project.</p>';
-            console.error('Fetch error:', error);
-        }
+        // Update UI state
+        infoBtn.classList.remove('active');
+        projectsBtn.classList.remove('active'); // No button is active in detail view
     }
 
     // --- Event Listeners ---
-
     infoBtn.addEventListener('click', (e) => {
         e.preventDefault();
         showInfo();
-        history.pushState(null, '', '/');
     });
 
     projectsBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        showProjects();
-        history.pushState(null, '', '/');
+        showProjectsGrid();
     });
 
-    // Event Delegation: Listen for clicks on the main projects container
+    // Event Delegation for project clicks
     projectsContent.addEventListener('click', (e) => {
-        // Check if a project link was clicked
         const projectLink = e.target.closest('.project-item-link');
         if (projectLink) {
             e.preventDefault();
             const url = projectLink.getAttribute('href');
-            loadProject(url);
+            const projectKey = url.replace('.html', ''); // Match the key in our JSON
             history.pushState({ path: url }, '', url);
+            showProjectDetail(projectKey);
         }
-
-        // REMOVED: The event listener for the dynamic 'back' button is no longer needed.
     });
 
     // Handle Browser Back/Forward buttons
     window.addEventListener('popstate', (e) => {
-        if (e.state && e.state.path) {
-            loadProject(e.state.path);
+        const path = window.location.pathname;
+        if (path === '/' || path === '/index.html') {
+            showProjectsGrid();
+        } else if (path.includes('/projects/')) {
+            const projectKey = path.replace('.html', '');
+            showProjectDetail(projectKey);
         } else {
-            showProjects();
+            showInfo();
         }
     });
 
-    function handleInitialLoad() {
-    const path = window.location.pathname;
+    // --- Initial Page Load Handler ---
+    async function initializePage() {
+        await fetchProjectData(); // Load all data first
+        const path = window.location.pathname;
 
-    // If the path is a project URL (heuristic: contains '/projects/').
-    // Adjust this check if your project URLs follow a different pattern.
-    if (path.includes('/projects/')) {
-        // 1. Ensure the projects view is visible
-        infoContent.style.display = 'none';
-        projectsContent.style.display = 'block';
-        infoBtn.classList.remove('active');
-        // Note: We don't activate projectsBtn because we're in a detail view.
-
-        // 2. Load the specific project
-        loadProject(path);
-    } else {
-        // Otherwise, default to the info view
-        showInfo();
+        if (path.includes('/projects/')) {
+            const projectKey = path.replace('.html', '');
+            
+            // Set initial view state correctly
+            infoContent.style.display = 'none';
+            projectsContent.style.display = 'block';
+            
+            showProjectDetail(projectKey);
+        } else {
+            // Default to the info view
+            showInfo();
+        }
     }
-}
 
-// Run the initial load handler when the DOM is ready.
-handleInitialLoad();
+    initializePage();
 });
-

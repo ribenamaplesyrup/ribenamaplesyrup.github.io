@@ -4,4 +4,4 @@ description: Technologist and researcher based in London.
 
 collections:
   projects:
-    output: true # This tells Jekyll to create a page for each project
+    output: false
