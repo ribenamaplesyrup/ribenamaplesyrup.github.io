@@ -11,7 +11,7 @@ hero_image: '/images/projects/germ/warthog.jpg'
 
 The UK has 3 million+ active companies filing annual reports at Companies House. Distributed unevenly throughout these reports are interesting disclosures revealing some of the myriad ways in which geopolitics and climate are increasingly shaping the economy.
 
-To explore this previously inaccessible region of reporting, I built a geopolitical and environment risk monitor (GERM) to ingest tens of thousands of documents daily and extract and classify these passages of text, cluster them by impact, and map them geospatially within a Streamlit application. 
+To explore this previously inaccessible region of reporting, I'm developing a geopolitical and environment risk monitor (GERM) to ingest tens of thousands of documents daily and extract and classify these passages of text, cluster them by impact, and map them geospatially within a web app. 
 
 This new capability allows me to detect nuanced signals that were previously lost in the noise. It has already surfaced surprising corporate cohorts, such as [firms reporting upside from war](https://adu.autonomy.work/posts/2025_02_20_crisis-and-commerce/){:target="_blank" rel="noopener noreferrer"} or those [disclosing specific types of criminal activity](https://adu.autonomy.work/posts/2025_02_11_exceptional-items/){:target="_blank" rel="noopener noreferrer"}, which would be nearly impossible to find with conventional search methods.
 
@@ -22,5 +22,3 @@ This new capability allows me to detect nuanced signals that were previously los
 I’m currently using the tool to test several concepts: using embeddings to surface “islands of coalition” (firms facing similar risks across sectors/places), applying LLMs for advanced concept filtration (e.g., anti-fragility, adaptation, supply-chain diversification, business-model change), and testing interactive planning simulations that infer company-level risk profiles and generate scenario narratives, fusing filings with external signals and, where useful, feeding agent-based models.
 
 **[Blog Post](https://adu.autonomy.work/posts/2024_03_23_GERM/){:target="_blank" rel="noopener noreferrer"}**
-**[Demo](https://show.autonomy.work/GERM/){:target="_blank" rel="noopener noreferrer"}**
-
