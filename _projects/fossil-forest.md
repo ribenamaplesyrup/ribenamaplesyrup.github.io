@@ -4,8 +4,8 @@ title: "Fossil Forest"
 description: "The forgotten sonics of plastic water bottles"
 year: 2021
 tags: [Physical Computing]
-cover_image: '/images/projects/fossil-forest/cover.png'
-hero_image: '/images/projects/fossil-forest/cover.png'
+cover_image: '/images/projects/fossil-forest/cover.jpg'
+hero_image: '/images/projects/fossil-forest/cover.jpg'
 ---
 ![Report](/images/projects/fossil-forest/structure.png){: .img-half}
 

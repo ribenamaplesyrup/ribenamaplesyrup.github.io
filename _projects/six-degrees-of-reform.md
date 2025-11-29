@@ -4,8 +4,8 @@ title: "Six Degrees of Reform"
 description: "Examining Reform UK's wider corporate connections"
 year: 2024
 tags: [OSINT]
-cover_image: '/images/projects/six-degrees-of-reform/cover.png'
-hero_image: '/images/projects/six-degrees-of-reform/cover.png'
+cover_image: '/images/projects/six-degrees-of-reform/cover.jpg'
+hero_image: '/images/projects/six-degrees-of-reform/cover.jpg'
 ---
 
 ![Report](/images/projects/six-degrees-of-reform/network.png){: .img-three-quarters}{: .shadow}

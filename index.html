@@ -97,7 +97,9 @@
         <div id="projects-content" style="display: none;">
             <div id="projects-grid-anchor" class="projects-grid">
 
-    {% assign sorted_projects = site.projects | sort: 'year' | reverse %}
+    {% assign featured_projects = site.projects | where: "featured", true %}
+    {% assign regular_projects = site.projects | where_exp: "project", "project.featured != true" | sort: 'year' | reverse %}
+    {% assign sorted_projects = featured_projects | concat: regular_projects %}
     {% for project in sorted_projects %}
     <a href="{{ project.url }}" class="project-item-link" data-project-url="{{ project.url }}">
         <div class="project-item">
