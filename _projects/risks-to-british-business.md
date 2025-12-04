@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Risks to British Business"
+title: "riskstobritishbusiness.today"
 description: "Real-time risk intelligence platform analyzing UK company filings daily"
 year: 2025
 featured: true
