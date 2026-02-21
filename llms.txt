@@ -1,0 +1,29 @@
+# Sean Greaves
+
+> Technologist and researcher based in London. Leads practical exploration of generative AI at the Autonomy Institute, a think tank developing data-driven tools for sustainable economic planning. Previously worked in Applied AI at IBM and Seldon. Developed open-source investigative tools for Bellingcat. Holds degrees in Mechanical Engineering and Design Informatics from the University of Edinburgh.
+
+## Work
+
+Sean's portfolio spans LLM applications, OSINT tooling, computer vision, and data visualisation. Projects include:
+
+- Corkboard (2025): Mapping political connections with web automation, AI and Obsidian
+- riskstobritishbusiness.today (2025): Real-time risk intelligence platform analyzing UK company filings daily using LLMs
+- The Rise of AI as a Threat to the S&P 500 (2025): Report and dataset on new AI-related risks disclosed by the largest US companies
+- Project 2025 Index (2024): Interactive semantic search index for the Heritage Foundation's presidential plan, built with LLMs and embeddings
+- Scribe (2024): LLM-powered topic modelling for large-scale free-form survey responses
+- Six Degrees of Reform (2024): Examining Reform UK's wider corporate connections using OSINT
+- Sugartrail (2022): Open-source network analysis tool for navigating corporate ownership networks via Companies House data, developed for Bellingcat
+- Dark Kitchen Cartography (2023): Mapping Deliveroo's dark kitchen estate using web scraping and data visualisation
+- Detecting Tear Gas Canisters with Limited Training Data (2021): Object detection for human rights investigations
+
+Full project list and details: https://seangreaves.xyz/api/projects.json
+
+## Press & Citations
+
+Work featured in the Financial Times, The Guardian, Stanford Law School, Global Investigative Journalism Network, International Trade Union Confederation, Progressive International, and Focus on Labour Exploitation.
+
+## Contact
+
+- Email: seanwgreaves@gmail.com
+- GitHub: https://github.com/ribenamaplesyrup
+- LinkedIn: https://www.linkedin.com/in/sean-g-2aa38b12a/
