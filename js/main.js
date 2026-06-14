@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (projectsData) return projectsData; // Return cached data if available
 
         try {
-            const response = await fetch('/api/projects.json');
+            const response = await fetch('/api/projects.json', { cache: 'no-store' });
             if (!response.ok) throw new Error('Network response was not ok.');
             projectsData = await response.json();
             return projectsData;
