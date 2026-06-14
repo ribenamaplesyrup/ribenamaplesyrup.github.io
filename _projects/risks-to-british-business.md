@@ -8,7 +8,7 @@ tags: [LLMs]
 cover_image: '/images/projects/risks-to-british-business/cover.jpg'
 hero_image: '/images/projects/risks-to-british-business/rtbb.png'
 ---
-![Risks to British Business platform](/images/projects/risks-to-british-business/rtbb.png){: .shadow}
+![Risks to British Business platform](/images/projects/risks-to-british-business/rtbb.png?v=2){: .shadow}
 
 Risks to British Business reads the annual report filings that UK companies lodge with Companies House and the Financial Conduct Authority, and pulls out the impact events buried inside them: the storms, supply-chain shocks, conflicts, regulatory changes and other external forces that businesses describe as having hit their operations. Each event is extracted, verified, traced back to the original filing, and curated by a human analyst.
 
