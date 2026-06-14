@@ -1,21 +1,25 @@
 ---
 layout: project
 title: "riskstobritishbusiness.today"
-description: "Real-time risk intelligence platform analyzing UK company filings daily"
+description: "Real-time intelligence on the real-world events disrupting UK companies, extracted from Companies House filings"
 year: 2025
 featured: true
 tags: [LLMs]
 cover_image: '/images/projects/risks-to-british-business/cover.jpg'
 hero_image: '/images/projects/risks-to-british-business/rtbb.png'
 ---
-![Risks to British Business Platform](/images/projects/risks-to-british-business/rtbb.png){: .shadow}
+![Risks to British Business platform](/images/projects/risks-to-british-business/rtbb.png){: .shadow}
 
-Risks to British Business is a risk intelligence platform that analyzes tens of thousands of Companies House filings daily, cutting through the boilerplate to extract external threats that are verified and human-curated. The platform tracks seven categories of external risk: Climate, Natural Capital, Political and Regulatory, Illicit Activity, Conflict, Human Capital, and Trade.
+Risks to British Business reads the annual report filings that UK companies lodge with Companies House and the Financial Conduct Authority, and pulls out the impact events buried inside them: the storms, supply-chain shocks, conflicts, regulatory changes and other external forces that businesses describe as having hit their operations. Each event is extracted, verified, traced back to the original filing, and curated by a human analyst.
 
-The system processes all electronic filings from Companies House, providing comprehensive coverage of most UK SMEs. By 2027, this will cover every UK company. Additional data is sourced from company websites and news articles.
+The platform has scanned 3.6 million filings over the past financial year, surfacing impact events across more than a thousand UK companies, with coverage updated daily in step with Companies House and FCA releases. It processes every electronic filing these regulators publish, giving comprehensive coverage of most UK SMEs today, and every UK company by 2027. Additional context is drawn from company websites and news reporting.
 
-While AI is used extensively in the analysis pipeline, every insight published through the dashboard is validated, sourced, and curated by a human subject matter expert. This ensures accuracy and reliability while maintaining the scale needed to process thousands of documents daily.
+Findings are presented three ways: an interactive map plotting where impacts land across the UK; an impacted products view that traces events down to the specific own-brand goods affected; and a taxonomy that organises everything into a navigable graph of event types, themes and downstream impacts.
 
-The platform is currently in 'Alpha', with daily updates synchronized with Companies House releases and analyst validation processes. Weekly data is free to access, with subscription services planned based on user demand.
+While AI does the heavy lifting in the extraction pipeline, every insight published to the dashboard is validated, sourced, and signed off by a human subject-matter expert, holding accuracy at the scale of thousands of documents a day.
 
-**[View Platform](https://www.riskstobritishbusiness.today){:target="_blank" rel="noopener noreferrer"}**
+[View Platform](https://www.riskstobritishbusiness.today){:target="_blank" rel="noopener noreferrer"}
+
+![The map view: impact events plotted across the UK](/images/projects/risks-to-british-business/rtbb-map.png){: .shadow}
+
+![The impacted products view](/images/projects/risks-to-british-business/rtbb-products.png){: .shadow}
