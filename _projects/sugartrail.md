@@ -16,6 +16,4 @@ hero_image: '/images/projects/sugartrail/candy.png'
 
 {% include youtube.html id="evPXGTj33LQ" autoplay="true" %}
 
-The tool has since been used by international investigative journalists including at the Financial Times within a corruption investigation into a UK cabinet minister.
-
 **Featured in**: [Bellingcat](https://www.bellingcat.com/resources/2022/09/19/identifying-suspicious-businesses-reddit-analysis-and-tracking-russian-propaganda-here-are-the-results-of-bellingcats-first-ever-hackathon/){:target="_blank" rel="noopener noreferrer"}, [Global Investigative Journalism Network](https://gijn.org/stories/new-reporting-tools-to-archive-videos-find-qanon-networks-and-track-targets-via-online-reviews/){:target="_blank" rel="noopener noreferrer"} & [Journal of Economic Criminology](https://www.sciencedirect.com/science/article/pii/S2949791424000071){:target="_blank" rel="noopener noreferrer"}
