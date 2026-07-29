@@ -18,7 +18,7 @@ Findings are presented three ways: an interactive map plotting where impacts lan
 
 While AI does the heavy lifting in the extraction pipeline, every insight published to the dashboard is validated, sourced, and signed off by a human subject-matter expert, holding accuracy at the scale of thousands of documents a day.
 
-[View Platform](https://www.riskstobritishbusiness.today){:target="_blank" rel="noopener noreferrer"}
+[View Demo](https://rtbb.seangreaves.xyz){:target="_blank" rel="noopener noreferrer"}
 
 ![The map view: impact events plotted across the UK](/images/projects/risks-to-british-business/rtbb-map.png){: .shadow}
 
