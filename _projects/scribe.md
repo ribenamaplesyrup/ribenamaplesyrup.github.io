@@ -5,6 +5,8 @@ description: "LLM-powered topic modelling for large-scale free-form survey respo
 year: 2024
 tags: [LLMs, Embeddings]
 cover_image: '/images/projects/scribe/cover.png'
+carousel_image: '/images/carousel/scribe.jpg'
+link: 'https://static.autonomy.work/adu/public/scribe-app/'
 hero_image: '/images/projects/scribe/cover.png'
 ---
 {% include youtube.html id="yGMCZ5FopxA" autoplay="true" %}

@@ -5,6 +5,8 @@ description: "Object detection for human rights investigations"
 year: 2021
 tags: [Computer Vision]
 cover_image: '/images/projects/detecting-tear-gas-canisters/cover.jpg'
+carousel_image: '/images/carousel/detecting-tear-gas-canisters.jpg'
+link: 'https://ieeexplore.ieee.org/document/9706699'
 hero_image: '/images/projects/detecting-tear-gas-canisters/cover.jpg'
 ---
 Human rights investigations often require triaging large volumes of open source data in order to find moments within image, or video that are relevant to a given investigation and warrant further inspection. 37-40mm tear gas canisters are some of the most common munitions used against protesters worldwide, however searching for images containing tear gas usage online manually is laborious and time-consuming. 

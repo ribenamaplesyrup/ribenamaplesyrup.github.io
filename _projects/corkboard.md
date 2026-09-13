@@ -5,6 +5,8 @@ description: "Mapping political connections with web automation, AI and Obsidian
 year: 2025
 tags: [LLMs, Web Scraping]
 cover_image: '/images/projects/corkboard/cover-alt-s.png'
+carousel_image: '/images/carousel/corkboard.jpg'
+link: 'https://adu.autonomy.work/posts/2025_07_31_corkboard/'
 hero_image: '/images/projects/corkboard/cover-alt-s.png'
 ---
 The internet has made one-man intelligence agencies of all of us. Armed with some names and too much free time, digging around and connecting the dots is a relatively frictionless if time-consuming experience. On occasion, you might find something interesting. Yet it is common to run into hard scaling limits when attempting to map the connections between entities within large networks.

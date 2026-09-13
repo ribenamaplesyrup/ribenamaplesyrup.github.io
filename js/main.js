@@ -1,136 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Element References ---
-    const infoBtn = document.getElementById('info-btn');
-    const projectsBtn = document.getElementById('projects-btn');
-    const infoContent = document.getElementById('info-content');
-    const projectsContent = document.getElementById('projects-content');
-    const projectsGrid = document.querySelector('.projects-grid');
-    const projectDetailView = document.getElementById('project-detail-view');
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
 
-    // This will hold all our project data after one initial fetch
-    let projectsData = null;
+    const slideStep = () => {
+        const slide = track.querySelector('.slide');
+        if (!slide) return track.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return slide.getBoundingClientRect().width + gap;
+    };
 
-    // --- Data Fetching ---
-    async function fetchProjectData() {
-        if (projectsData) return projectsData; // Return cached data if available
+    const scrollBySlides = (n) => track.scrollBy({ left: n * slideStep(), behavior: 'smooth' });
 
-        try {
-            const response = await fetch('/api/projects.json', { cache: 'no-store' });
-            if (!response.ok) throw new Error('Network response was not ok.');
-            projectsData = await response.json();
-            return projectsData;
-        } catch (error) {
-            console.error('Failed to fetch project data:', error);
-            projectDetailView.innerHTML = '<p>Sorry, projects could not be loaded.</p>';
-            return null;
-        }
-    }
-
-    // --- Core View Switching Logic ---
-    function showInfo() {
-        infoContent.style.display = 'block';
-        projectsContent.style.display = 'none';
-        projectDetailView.innerHTML = ''; // <-- ADD THIS LINE
-        infoBtn.classList.add('active');
-        projectsBtn.classList.remove('active');
-        history.pushState(null, '', '/');
-    }
-
-    function showProjectsGrid() {
-        infoContent.style.display = 'none';
-        projectsContent.style.display = 'block';
-        projectsGrid.style.display = 'grid'; 
-        projectDetailView.innerHTML = ''; // <-- ADD THIS LINE
-        projectDetailView.style.display = 'none'; 
-        infoBtn.classList.remove('active');
-        projectsBtn.classList.add('active');
-        history.pushState(null, '', '/');
-    }
-
-    // --- Dynamic Project Loading Logic ---
-    function showProjectDetail(projectKey) {
-        if (!projectsData || !projectsData[projectKey]) {
-            projectDetailView.innerHTML = '<p>Sorry, this project could not be found.</p>';
-            return;
-        }
-        
-        const project = projectsData[projectKey];
-
-        // This is the HTML structure from your old _layouts/project.html
-        const projectHtml = `
-            <div id="project-detail-content">
-                <header class="project-header">
-                    <h2>${project.title}</h2>
-                </header>
-                <div class="project-content">
-                    ${project.content}
-                </div>
-            </div>`;
-
-        projectsGrid.style.display = 'none'; // Hide grid
-        projectDetailView.innerHTML = projectHtml;
-        projectDetailView.style.display = 'block'; // Show detail
-        window.scrollTo(0, 0);
-
-        // Update UI state
-        infoBtn.classList.remove('active');
-        projectsBtn.classList.remove('active'); // No button is active in detail view
-    }
-
-    // --- Event Listeners ---
-    infoBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showInfo();
+    document.querySelectorAll('.carousel-btn').forEach((btn) => {
+        btn.addEventListener('click', () => scrollBySlides(Number(btn.dataset.dir)));
     });
 
-    projectsBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showProjectsGrid();
+    track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); scrollBySlides(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); scrollBySlides(-1); }
     });
 
-    // Event Delegation for project clicks
-    projectsContent.addEventListener('click', (e) => {
-        const projectLink = e.target.closest('.project-item-link');
-        if (projectLink) {
-            e.preventDefault();
-            const url = projectLink.getAttribute('href');
-            const projectKey = url.replace('.html', ''); // Match the key in our JSON
-            history.pushState({ path: url }, '', url);
-            showProjectDetail(projectKey);
-        }
+    // Mouse drag to scroll (touch already scrolls natively).
+    let startX = 0, startScroll = 0, moved = false, pointerId = null;
+
+    track.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        pointerId = e.pointerId;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+        moved = false;
+        track.classList.add('dragging');
     });
 
-    // Handle Browser Back/Forward buttons
-    window.addEventListener('popstate', (e) => {
-        const path = window.location.pathname;
-        if (path === '/' || path === '/index.html') {
-            showProjectsGrid();
-        } else if (path.includes('/projects/')) {
-            const projectKey = path.replace('.html', '');
-            showProjectDetail(projectKey);
-        } else {
-            showInfo();
-        }
+    track.addEventListener('pointermove', (e) => {
+        if (e.pointerId !== pointerId) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll - dx;
     });
 
-    // --- Initial Page Load Handler ---
-    async function initializePage() {
-        await fetchProjectData(); // Load all data first
-        const path = window.location.pathname;
-
-        if (path.includes('/projects/')) {
-            const projectKey = path.replace('.html', '');
-            
-            // Set initial view state correctly
-            infoContent.style.display = 'none';
-            projectsContent.style.display = 'block';
-            
-            showProjectDetail(projectKey);
-        } else {
-            // Default to the info view
-            showInfo();
+    const endDrag = (e) => {
+        if (e.pointerId !== pointerId) return;
+        pointerId = null;
+        track.classList.remove('dragging');
+        if (moved) {
+            // Snap to the nearest slide once the drag ends.
+            const step = slideStep();
+            track.scrollTo({ left: Math.round(track.scrollLeft / step) * step, behavior: 'smooth' });
         }
-    }
+    };
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+    track.addEventListener('pointerleave', endDrag);
 
-    initializePage();
+    // A drag that moved should not also open the slide's link.
+    track.addEventListener('click', (e) => {
+        if (moved) { e.preventDefault(); moved = false; }
+    }, true);
 });

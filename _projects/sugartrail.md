@@ -5,6 +5,8 @@ description: "Visualising networks of companies, officers and addresses connecte
 year: 2022
 tags: [OSINT]
 cover_image: '/images/projects/sugartrail/candy.png'
+carousel_image: '/images/carousel/sugartrail.jpg'
+link: 'https://github.com/bellingcat/sugartrail'
 hero_image: '/images/projects/sugartrail/candy.png'
 ---
 

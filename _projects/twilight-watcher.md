@@ -5,6 +5,7 @@ description: "Crepuscular pattern weaving with CCTV"
 year: 2020
 tags: [Web Scraping]
 cover_image: '/images/projects/twilight-watcher/cover.jpg'
+carousel_image: '/images/carousel/twilight-watcher.jpg'
 hero_image: '/images/projects/twilight-watcher/cover.jpg'
 ---
 ![Report](/images/projects/twilight-watcher/observatory.jpeg){: .img-three-quarters}

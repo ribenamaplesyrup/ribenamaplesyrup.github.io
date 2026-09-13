@@ -6,6 +6,8 @@ year: 2025
 featured: true
 tags: [LLMs]
 cover_image: '/images/projects/risks-to-british-business/cover.jpg'
+carousel_image: '/images/carousel/risks-to-british-business.jpg'
+link: 'https://rtbb.seangreaves.xyz'
 hero_image: '/images/projects/risks-to-british-business/rtbb.png'
 ---
 ![Risks to British Business platform](/images/projects/risks-to-british-business/rtbb.png?v=2){: .shadow}
