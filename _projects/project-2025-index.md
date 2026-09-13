@@ -5,6 +5,7 @@ description: "An interactive index for the Heritage Foundation's presidential pl
 year: 2024
 tags: [LLMs, Embeddings]
 cover_image: '/images/projects/project-2025-index/cover.jpg'
+link: 'https://www.project2025index.com'
 hero_image: '/images/projects/project-2025-index/cover.jpg'
 ---
 

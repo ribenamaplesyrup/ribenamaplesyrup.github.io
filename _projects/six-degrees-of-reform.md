@@ -5,6 +5,7 @@ description: "Examining Reform UK's wider corporate connections"
 year: 2024
 tags: [OSINT]
 cover_image: '/images/projects/six-degrees-of-reform/cover.jpg'
+link: 'https://adu.autonomy.work/posts/2024_06_28_reform/'
 hero_image: '/images/projects/six-degrees-of-reform/cover.jpg'
 ---
 

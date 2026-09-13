@@ -5,6 +5,7 @@ description: "The forgotten sonics of plastic water bottles"
 year: 2021
 tags: [Physical Computing]
 cover_image: '/images/projects/fossil-forest/cover.jpg'
+link: 'https://soundcloud.com/user-218615110/fossil-forest'
 hero_image: '/images/projects/fossil-forest/cover.jpg'
 ---
 ![Report](/images/projects/fossil-forest/structure.png){: .img-half}

@@ -5,6 +5,7 @@ description: "Mapping Deliveroo's dark kitchen estate"
 year: 2023
 tags: ['Data Visualisation', 'Web Scraping']
 cover_image: '/images/projects/dark-kitchen-cartography/cover.png'
+link: 'https://adu.autonomy.work/posts/2023_10_30_dark-kitchen-cartography/'
 hero_image: '/images/projects/dark-kitchen-cartography/cover.png' # A nice wide hero image
 ---
 
