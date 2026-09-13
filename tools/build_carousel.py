@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Build the front-page carousel.
 
-Collects every image referenced in the body of each project write-up
-(falling back to the cover for a write-up with none), writes a JPEG copy
-at a fixed height under images/carousel/, and emits _data/carousel.yml
-in a seeded shuffle where no two neighbours come from the same project.
+Reads the approved image paths from tools/approved-images.txt, looks up
+each one's project (title, year, link) from _projects front matter,
+writes a JPEG copy at a fixed height under images/carousel/, and emits
+_data/carousel.yml in a seeded shuffle where no two neighbours come from
+the same project.
 
-Run from the repo root after adding or changing project images:
+Run from the repo root after editing the approved list:
     python3 tools/build_carousel.py
 """
 import random
@@ -20,8 +21,8 @@ OUT = ROOT / "images" / "carousel"
 HEIGHT = 800  # source pixels; the page shows the strip at ~300 CSS px
 SEED = 20260913
 
+APPROVED = ROOT / "tools" / "approved-images.txt"
 FM = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.S)
-IMG = re.compile(r"/images/projects/[^\s)\"'?>]+")
 
 
 def field(fm, key):
@@ -30,20 +31,20 @@ def field(fm, key):
 
 
 def main():
+    projects = {}
+    for md in (ROOT / "_projects").glob("*.md"):
+        fm = FM.match(md.read_text()).group(1)
+        projects[md.stem] = {"title": field(fm, "title"), "year": field(fm, "year"), "link": field(fm, "link")}
+
     items = []
-    for md in sorted((ROOT / "_projects").glob("*.md")):
-        fm, body = FM.match(md.read_text()).groups()
-        if field(fm, "carousel") == "false":
+    for line in APPROVED.read_text().splitlines():
+        src = line.strip()
+        if not src or src.startswith("#"):
             continue
-        images = list(dict.fromkeys(IMG.findall(body))) or [field(fm, "cover_image")]
-        for src in images:
-            items.append({
-                "project": md.stem,
-                "title": field(fm, "title"),
-                "year": field(fm, "year"),
-                "link": field(fm, "link"),
-                "src": src,
-            })
+        slug = src.split("/")[3]
+        if slug not in projects:
+            raise SystemExit(f"{src}: no project named {slug} under _projects/")
+        items.append({"project": slug, "src": src, **projects[slug]})
 
     rng = random.Random(SEED)
     order = []

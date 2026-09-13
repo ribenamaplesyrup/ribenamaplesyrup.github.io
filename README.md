@@ -3,7 +3,7 @@
 Single-page personal site, built with Jekyll and deployed to GitHub Pages on every push to `master`.
 
 - `index.html` — the page: bio, then a scroll-snap strip of project images read from `_data/carousel.yml`.
-- `tools/build_carousel.py` — regenerates that data file and the JPEGs from every image referenced in `_projects/*.md` (a project with `carousel: false` is skipped; `link` in its front matter becomes the slide link). Rerun it after changing project images.
+- `tools/approved-images.txt` — the images allowed in the strip, one path per line. `tools/build_carousel.py` regenerates the data file and JPEGs from it, taking each slide's title, year and `link` from the project's front matter. Rerun it after editing the list.
 - `images/carousel/` — generated 800px-tall JPEG copies at native aspect ratio; originals stay under `images/projects/`.
 - `api/projects.json` — static export of the full project write-ups, kept for anything that links to it.
 

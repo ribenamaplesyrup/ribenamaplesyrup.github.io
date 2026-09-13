@@ -1,0 +1,27 @@
+# Images approved for the front-page strip, one path per line.
+# Edit this list, then run: python3 tools/build_carousel.py
+/images/projects/dark-kitchen-cartography/map.png
+/images/projects/detecting-tear-gas-canisters/sample.png
+/images/projects/facial-feedback/bella.png
+/images/projects/facial-feedback/cover.png
+/images/projects/facial-feedback/kim.png
+/images/projects/fossil-forest/bottle.png
+/images/projects/fossil-forest/cover.jpg
+/images/projects/project-2025-index/screenshot.png
+/images/projects/risks-to-british-business/rtbb-map.png
+/images/projects/risks-to-british-business/rtbb-products.png
+/images/projects/risks-to-british-business/rtbb.png
+/images/projects/scribe/cover-alt.png
+/images/projects/scribe/cover.png
+/images/projects/scribe/scribe.png
+/images/projects/six-degrees-of-reform/cover.jpg
+/images/projects/six-degrees-of-reform/network.png
+/images/projects/sugartrail/candy.png
+/images/projects/sugartrail/network.png
+/images/projects/sugartrail/regent.png
+/images/projects/their-capital-at-risk/cover.png
+/images/projects/their-capital-at-risk/deepfake.png
+/images/projects/their-capital-at-risk/diff.png
+/images/projects/twilight-watcher/cover.jpg
+/images/projects/twilight-watcher/mirror.png
+/images/projects/twilight-watcher/sort.png
