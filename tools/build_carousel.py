@@ -4,8 +4,9 @@
 Reads the approved image paths from tools/approved-images.txt, looks up
 each one's project (title, year, link) from _projects front matter,
 writes a JPEG copy at a fixed height under images/carousel/, and emits
-_data/carousel.yml in a seeded shuffle where no two neighbours come from
-the same project.
+_data/carousel.yml. Lines above "# shuffle below" lead the strip in
+their listed order; the rest follow in a seeded shuffle where no two
+neighbours come from the same project.
 
 Run from the repo root after editing the approved list:
     python3 tools/build_carousel.py
@@ -36,9 +37,13 @@ def main():
         fm = FM.match(md.read_text()).group(1)
         projects[md.stem] = {"title": field(fm, "title"), "year": field(fm, "year"), "link": field(fm, "link")}
 
-    items = []
+    lead, items = [], []
+    shuffling = False
     for line in APPROVED.read_text().splitlines():
         line = line.strip()
+        if line.lower().startswith("# shuffle below"):
+            shuffling = True
+            continue
         if not line or line.startswith("#"):
             continue
         # "path" alone takes title/year/link from the project's front matter;
@@ -51,10 +56,10 @@ def main():
                 meta[key] = val
         if not meta.get("title"):
             raise SystemExit(f"{src}: no project named {slug} under _projects/ and no title given")
-        items.append({"project": slug, "src": src, "link": None, **meta})
+        (items if shuffling else lead).append({"project": slug, "src": src, "link": None, **meta})
 
     rng = random.Random(SEED)
-    order = []
+    order = lead[:]
     pool = items[:]
     rng.shuffle(pool)
     while pool:

@@ -1,32 +1,24 @@
 # Images approved for the front-page strip, one path per line.
 # A bare path takes its title, year and link from the project's front matter;
 # add "| title | year | link" for an image that has no project write-up.
+# Lines above "# shuffle below" lead the strip in this order; the rest are
+# shuffled (fixed seed, no two neighbours from the same project).
 # Edit this list, then run: python3 tools/build_carousel.py
+/images/projects/risks-to-british-business/rtbb.png
+/images/projects/arts-funding-tracker/tracker.png | Local Government Arts Funding Tracker | 2026 | https://www.equity.org.uk/campaigns-policy/elections-2026/local-government-arts-funding-tracker
+/images/projects/their-capital-at-risk/deepfake.png
+/images/projects/risks-to-british-business/rtbb-map.png
+/images/projects/their-capital-at-risk/diff.png
+/images/projects/risks-to-british-business/rtbb-products.png
+# shuffle below
 /images/projects/dark-kitchen-cartography/map.png
 /images/projects/detecting-tear-gas-canisters/sample.png
-/images/projects/facial-feedback/bella.png
 /images/projects/facial-feedback/cover.png
-/images/projects/facial-feedback/kim.png
-/images/projects/fossil-forest/bottle.png
 /images/projects/fossil-forest/cover.jpg
 /images/projects/project-2025-index/screenshot.png
-/images/projects/risks-to-british-business/rtbb-map.png
-/images/projects/risks-to-british-business/rtbb-products.png
-/images/projects/risks-to-british-business/rtbb.png
-/images/projects/scribe/cover-alt.png
-/images/projects/scribe/cover.png
 /images/projects/scribe/scribe.png
-/images/projects/six-degrees-of-reform/cover.jpg
 /images/projects/six-degrees-of-reform/network.png
 /images/projects/sugartrail/candy.png
-/images/projects/sugartrail/network.png
-/images/projects/sugartrail/regent.png
-/images/projects/their-capital-at-risk/cover.png
-/images/projects/their-capital-at-risk/deepfake.png
-/images/projects/their-capital-at-risk/diff.png
 /images/projects/twilight-watcher/cover.jpg
 /images/projects/twilight-watcher/mirror.png
-/images/projects/twilight-watcher/sort.png
 /images/projects/germ/warthog.jpg | Crisis and Commerce | 2025 | https://adu.autonomy.work/posts/2025_02_20_crisis-and-commerce/
-/images/projects/exceptional-items/ict-direct.png | Exceptional Items | 2025 | https://adu.autonomy.work/posts/2025_02_11_exceptional-items/
-/images/projects/arts-funding-tracker/tracker.png | Local Government Arts Funding Tracker | 2026 | https://www.equity.org.uk/campaigns-policy/elections-2026/local-government-arts-funding-tracker
