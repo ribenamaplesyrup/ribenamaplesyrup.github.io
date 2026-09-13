@@ -1,6 +1,6 @@
 # Sean Greaves
 
-> Technologist based in London. Associate Director of Applied AI at Moody's Analytics. Previously led the Autonomy Institute's practical exploration of generative AI, worked in Applied AI at IBM and Seldon, and developed open-source investigative tools for Bellingcat. Holds degrees in Mechanical Engineering and Design Informatics from the University of Edinburgh.
+> Technologist based in London. Associate Director of Applied AI at Moody's Analytics. Previously held roles at IBM, Seldon and the Autonomy Institute, and developed open-source investigative tools for Bellingcat. Holds degrees in Mechanical Engineering and Design Informatics from the University of Edinburgh.
 
 ## Work
 
