@@ -18,13 +18,40 @@ document.addEventListener('DOMContentLoaded', () => {
         goTo(n > 0 ? showing + 1 : (leftOf(slides[showing]) < x - 2 ? showing : showing - 1));
     };
 
+    // Autoplay: one slide every few seconds, wrapping to the start. Pauses while the
+    // pointer is over the strip, while it has focus, while dragging, and for a while
+    // after any manual move. Off entirely when the OS asks for reduced motion.
+    const AUTOPLAY_MS = 5000;
+    const RESUME_AFTER_MS = 10000;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let paused = false, resumeAt = 0;
+
+    const autoAdvance = () => {
+        if (paused || document.hidden || Date.now() < resumeAt) return;
+        const x = track.scrollLeft;
+        const atEnd = x + track.clientWidth >= track.scrollWidth - 2;
+        if (atEnd) { goTo(0); return; }
+        const showing = slides.reduce((best, s, i) => (leftOf(s) <= x + 2 ? i : best), 0);
+        goTo(showing + 1);
+    };
+    if (!reducedMotion) setInterval(autoAdvance, AUTOPLAY_MS);
+
+    const manual = () => { resumeAt = Date.now() + RESUME_AFTER_MS; };
+    const carousel = track.closest('.carousel');
+    carousel.addEventListener('pointerenter', () => { paused = true; });
+    carousel.addEventListener('pointerleave', () => { paused = false; });
+    track.addEventListener('focusin', () => { paused = true; });
+    track.addEventListener('focusout', () => { paused = false; });
+    track.addEventListener('touchstart', manual, { passive: true });
+    track.addEventListener('wheel', manual, { passive: true });
+
     document.querySelectorAll('.carousel-btn').forEach((btn) => {
-        btn.addEventListener('click', () => step(Number(btn.dataset.dir)));
+        btn.addEventListener('click', () => { manual(); step(Number(btn.dataset.dir)); });
     });
 
     track.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); manual(); step(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); manual(); step(-1); }
     });
 
     // Mouse drag to scroll (touch already scrolls natively).
@@ -36,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startX = e.clientX;
         startScroll = track.scrollLeft;
         moved = false;
+        manual();
         track.classList.add('dragging');
     });
 
