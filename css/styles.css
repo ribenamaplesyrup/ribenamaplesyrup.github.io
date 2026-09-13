@@ -142,6 +142,7 @@ h1 {
 
 .slide {
   flex: 0 0 auto;
+  max-width: 100%;
   scroll-snap-align: start;
   user-select: none;
 }
@@ -153,8 +154,11 @@ h1 {
 .slide img {
   height: var(--strip-height);
   width: auto;
+  max-width: 100%;
+  /* An image wider than the column shrinks to fit; it keeps its aspect and sits on the caption. */
+  object-fit: contain;
+  object-position: left bottom;
   display: block;
-  background-color: var(--color-tag-bg);
   -webkit-user-drag: none;
 }
 
