@@ -3,23 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!track) return;
     const slides = Array.from(track.querySelectorAll('.slide'));
 
-    // Index of the slide whose left edge is at (or just past) the scroll position.
-    const currentIndex = () => {
-        const x = track.scrollLeft + 2;
-        let i = slides.findIndex((s) => s.offsetLeft >= x);
-        return i === -1 ? slides.length - 1 : i;
-    };
+    // Left edge of a slide measured from the start of the track's scroll range.
+    const leftOf = (s) => s.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
 
     const goTo = (i) => {
         i = Math.max(0, Math.min(slides.length - 1, i));
-        track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+        track.scrollTo({ left: leftOf(slides[i]), behavior: 'smooth' });
     };
 
     const step = (n) => {
         // When scrolled to a mid-slide position, "next" means the slide after the one showing.
         const x = track.scrollLeft;
-        const showing = slides.reduce((best, s, i) => (s.offsetLeft <= x + 2 ? i : best), 0);
-        goTo(n > 0 ? showing + 1 : (slides[showing].offsetLeft < x - 2 ? showing : showing - 1));
+        const showing = slides.reduce((best, s, i) => (leftOf(s) <= x + 2 ? i : best), 0);
+        goTo(n > 0 ? showing + 1 : (leftOf(slides[showing]) < x - 2 ? showing : showing - 1));
     };
 
     document.querySelectorAll('.carousel-btn').forEach((btn) => {
@@ -58,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Snap to whichever slide edge is nearest once the drag ends.
             const x = track.scrollLeft;
             const nearest = slides.reduce((b, s, i) =>
-                Math.abs(s.offsetLeft - x) < Math.abs(slides[b].offsetLeft - x) ? i : b, 0);
+                Math.abs(leftOf(s) - x) < Math.abs(leftOf(slides[b]) - x) ? i : b, 0);
             goTo(nearest);
         }
     };
