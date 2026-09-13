@@ -5,7 +5,6 @@ description: "New AI-related risks disclosed by the largest US companies"
 year: 2025
 tags: ['Report', 'Dataset', 'LLMs']
 cover_image: '/images/projects/their-capital-at-risk/cover.png'
-carousel_image: '/images/carousel/their-capital-at-risk.jpg'
 link: 'https://autonomy.work/wp-content/uploads/2025/07/Sp-500-capital-at-risk_-3.pdf'
 hero_image: '/images/projects/their-capital-at-risk/cover.png' # Can be same as cover or a different one
 ---

@@ -5,7 +5,6 @@ description: "Doppelgänger keypoint convergence"
 year: 2021
 tags: [Computer Vision]
 cover_image: '/images/projects/facial-feedback/cover.png'
-carousel_image: '/images/carousel/facial-feedback.jpg'
 hero_image: '/images/projects/facial-feedback/cover.png'
 ---
 

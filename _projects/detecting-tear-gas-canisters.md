@@ -5,7 +5,6 @@ description: "Object detection for human rights investigations"
 year: 2021
 tags: [Computer Vision]
 cover_image: '/images/projects/detecting-tear-gas-canisters/cover.jpg'
-carousel_image: '/images/carousel/detecting-tear-gas-canisters.jpg'
 link: 'https://ieeexplore.ieee.org/document/9706699'
 hero_image: '/images/projects/detecting-tear-gas-canisters/cover.jpg'
 ---

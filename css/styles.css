@@ -109,7 +109,7 @@ h1 {
    ========================================================================== */
 
 .carousel {
-  --slide-width: 62%;
+  --strip-height: 300px;
   --slide-gap: 16px;
 }
 
@@ -141,7 +141,7 @@ h1 {
 }
 
 .slide {
-  flex: 0 0 var(--slide-width);
+  flex: 0 0 auto;
   scroll-snap-align: start;
   user-select: none;
 }
@@ -151,9 +151,8 @@ h1 {
 }
 
 .slide img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: var(--strip-height);
+  width: auto;
   display: block;
   background-color: var(--color-tag-bg);
   -webkit-user-drag: none;
@@ -235,7 +234,7 @@ h1 {
   }
 
   .carousel {
-    --slide-width: 85%;
+    --strip-height: 220px;
   }
 }
 

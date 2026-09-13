@@ -60,24 +60,21 @@
                 degrees in Mechanical Engineering and Design Informatics from the University of Edinburgh.</p>
         </div>
 
-        {% assign featured_projects = site.projects | where: "featured", true %}
-        {% assign regular_projects = site.projects | where_exp: "project", "project.featured != true" | where_exp: "project", "project.carousel != false" | sort: 'year' | reverse %}
-        {% assign sorted_projects = featured_projects | concat: regular_projects %}
         <section class="carousel" aria-label="Selected projects">
             <div class="carousel-track" tabindex="0">
-                {% for project in sorted_projects %}
+                {% for item in site.data.carousel %}
                 <figure class="slide">
-                    {% if project.link %}<a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" draggable="false">{% endif %}
-                    <img src="{{ project.carousel_image | default: project.cover_image }}" alt="{{ project.title }}"
-                        draggable="false"{% if forloop.index > 2 %} loading="lazy"{% endif %}>
-                    {% if project.link %}</a>{% endif %}
-                    <figcaption>{{ project.title }} <span class="year">· {{ project.year }}</span></figcaption>
+                    {% if item.link %}<a href="{{ item.link }}" target="_blank" rel="noopener noreferrer" draggable="false">{% endif %}
+                    <img src="{{ item.image }}" alt="{{ item.title }}" width="{{ item.width }}" height="{{ item.height }}"
+                        draggable="false"{% if forloop.index > 3 %} loading="lazy"{% endif %}>
+                    {% if item.link %}</a>{% endif %}
+                    <figcaption>{{ item.title }} <span class="year">· {{ item.year }}</span></figcaption>
                 </figure>
                 {% endfor %}
             </div>
             <div class="carousel-nav">
-                <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous project">‹</button>
-                <button type="button" class="carousel-btn" data-dir="1" aria-label="Next project">›</button>
+                <button type="button" class="carousel-btn" data-dir="-1" aria-label="Previous image">‹</button>
+                <button type="button" class="carousel-btn" data-dir="1" aria-label="Next image">›</button>
             </div>
         </section>
 

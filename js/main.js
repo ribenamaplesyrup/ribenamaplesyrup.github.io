@@ -1,23 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.carousel-track');
     if (!track) return;
+    const slides = Array.from(track.querySelectorAll('.slide'));
 
-    const slideStep = () => {
-        const slide = track.querySelector('.slide');
-        if (!slide) return track.clientWidth;
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        return slide.getBoundingClientRect().width + gap;
+    // Index of the slide whose left edge is at (or just past) the scroll position.
+    const currentIndex = () => {
+        const x = track.scrollLeft + 2;
+        let i = slides.findIndex((s) => s.offsetLeft >= x);
+        return i === -1 ? slides.length - 1 : i;
     };
 
-    const scrollBySlides = (n) => track.scrollBy({ left: n * slideStep(), behavior: 'smooth' });
+    const goTo = (i) => {
+        i = Math.max(0, Math.min(slides.length - 1, i));
+        track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+    };
+
+    const step = (n) => {
+        // When scrolled to a mid-slide position, "next" means the slide after the one showing.
+        const x = track.scrollLeft;
+        const showing = slides.reduce((best, s, i) => (s.offsetLeft <= x + 2 ? i : best), 0);
+        goTo(n > 0 ? showing + 1 : (slides[showing].offsetLeft < x - 2 ? showing : showing - 1));
+    };
 
     document.querySelectorAll('.carousel-btn').forEach((btn) => {
-        btn.addEventListener('click', () => scrollBySlides(Number(btn.dataset.dir)));
+        btn.addEventListener('click', () => step(Number(btn.dataset.dir)));
     });
 
     track.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); scrollBySlides(1); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); scrollBySlides(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
     });
 
     // Mouse drag to scroll (touch already scrolls natively).
@@ -44,9 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
         pointerId = null;
         track.classList.remove('dragging');
         if (moved) {
-            // Snap to the nearest slide once the drag ends.
-            const step = slideStep();
-            track.scrollTo({ left: Math.round(track.scrollLeft / step) * step, behavior: 'smooth' });
+            // Snap to whichever slide edge is nearest once the drag ends.
+            const x = track.scrollLeft;
+            const nearest = slides.reduce((b, s, i) =>
+                Math.abs(s.offsetLeft - x) < Math.abs(slides[b].offsetLeft - x) ? i : b, 0);
+            goTo(nearest);
         }
     };
     track.addEventListener('pointerup', endDrag);
