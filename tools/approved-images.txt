@@ -1,4 +1,6 @@
 # Images approved for the front-page strip, one path per line.
+# A bare path takes its title, year and link from the project's front matter;
+# add "| title | year | link" for an image that has no project write-up.
 # Edit this list, then run: python3 tools/build_carousel.py
 /images/projects/dark-kitchen-cartography/map.png
 /images/projects/detecting-tear-gas-canisters/sample.png
@@ -25,3 +27,6 @@
 /images/projects/twilight-watcher/cover.jpg
 /images/projects/twilight-watcher/mirror.png
 /images/projects/twilight-watcher/sort.png
+/images/projects/germ/warthog.jpg | Crisis and Commerce | 2025 | https://adu.autonomy.work/posts/2025_02_20_crisis-and-commerce/
+/images/projects/exceptional-items/ict-direct.png | Exceptional Items | 2025 | https://adu.autonomy.work/posts/2025_02_11_exceptional-items/
+/images/projects/arts-funding-tracker/tracker.png | Local Government Arts Funding Tracker | 2026 | https://www.equity.org.uk/campaigns-policy/elections-2026/local-government-arts-funding-tracker

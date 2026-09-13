@@ -38,13 +38,20 @@ def main():
 
     items = []
     for line in APPROVED.read_text().splitlines():
-        src = line.strip()
-        if not src or src.startswith("#"):
+        line = line.strip()
+        if not line or line.startswith("#"):
             continue
+        # "path" alone takes title/year/link from the project's front matter;
+        # "path | title | year | link" spells them out for an image with no project.
+        src, *rest = [part.strip() for part in line.split("|")]
         slug = src.split("/")[3]
-        if slug not in projects:
-            raise SystemExit(f"{src}: no project named {slug} under _projects/")
-        items.append({"project": slug, "src": src, **projects[slug]})
+        meta = dict(projects.get(slug, {}))
+        for key, val in zip(("title", "year", "link"), rest):
+            if val:
+                meta[key] = val
+        if not meta.get("title"):
+            raise SystemExit(f"{src}: no project named {slug} under _projects/ and no title given")
+        items.append({"project": slug, "src": src, "link": None, **meta})
 
     rng = random.Random(SEED)
     order = []
@@ -71,9 +78,10 @@ def main():
             im = bg
         else:
             im = im.convert("RGB")
-        w = round(im.width * HEIGHT / im.height)
-        im.resize((w, HEIGHT), Image.LANCZOS).save(OUT / name, quality=78, optimize=True)
-        lines.append(f"- image: /images/carousel/{name}\n  width: {w}\n  height: {HEIGHT}\n"
+        h = min(HEIGHT, im.height)  # never upscale a small source
+        w = round(im.width * h / im.height)
+        im.resize((w, h), Image.LANCZOS).save(OUT / name, quality=78, optimize=True)
+        lines.append(f"- image: /images/carousel/{name}\n  width: {w}\n  height: {h}\n"
                      f"  title: {item['title']!r}\n  year: {item['year']}\n"
                      + (f"  link: {item['link']!r}\n" if item["link"] else ""))
     (ROOT / "_data").mkdir(exist_ok=True)
